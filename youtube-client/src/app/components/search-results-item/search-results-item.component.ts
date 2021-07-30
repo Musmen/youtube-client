@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import SearchResultItem from '../../models/youtube-response/youtube-response-item.model';
+import SearchResultsItem from '../../models/search-results/search-results-item.model';
 
 @Component({
   selector: 'app-search-results-item',
@@ -8,5 +8,5 @@ import SearchResultItem from '../../models/youtube-response/youtube-response-ite
 })
 
 export class SearchResultsItemComponent {
-  searchResultItem?: SearchResultItem;
+  searchResultItem?: SearchResultsItem;
 }
