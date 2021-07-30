@@ -3,10 +3,10 @@ import YoutubeResponceStatistics from './youtube-response-statistics.model';
 
 export default interface YoutubeResponceItem {
   id: string,
-  title: string,
-  description: string,
   snippet: {
     publishedAt: string,
+    title: string,
+    description: string,
     thumbnails: {
       default: YoutubeResponceThumbnails,
       medium?: YoutubeResponceThumbnails,
