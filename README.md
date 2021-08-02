@@ -13,3 +13,6 @@ Scope:
 [YouTube client. Response example](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/response.json)
 
 Please bear in mind that you don’t need to implement any logic or markup. The outcome of this task should contain only newly generated and empty components.
+
+### Branch "task-2" ([link to PR#2](https://github.com/Musmen/youtube-client/pull/2)): 
+## Task "Angular. Components. Directives & Pipes task" ([link](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/components-directives-pipes.md))
