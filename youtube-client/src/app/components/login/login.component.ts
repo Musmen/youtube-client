@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import UserModel from '../../models/user/user.model';
+
+import UserModel from '@app/models/user/user.model';
+import { DEFAULT_USER } from '@common/constants';
 
 @Component({
   selector: 'app-login',
@@ -7,5 +9,5 @@ import UserModel from '../../models/user/user.model';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  user?: UserModel;
+  user: UserModel = DEFAULT_USER;
 }

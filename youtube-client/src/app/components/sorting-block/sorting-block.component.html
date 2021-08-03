@@ -1,0 +1,50 @@
+<mat-expansion-panel hideToggle [(expanded)]="isSortingPanelOpen">
+  <div class="sorting-block centralizer">
+    <span class="sorting-title">Sorting by:</span>
+
+    <ul class="sorting-criteria-list list">
+      <li class="sorting-criteria-item">
+        <a
+          class="sorting-criteria-link"
+        >
+          <span class="text-underline">date</span>
+          <mat-icon class="sorting-direction-icon">keyboard_arrow_down</mat-icon>
+        </a>
+      </li>
+
+      <li class="sorting-criteria-item">
+        <a
+          class="sorting-criteria-link"
+        >
+          <span class="text-underline">count of views</span>
+          <mat-icon class="sorting-direction-icon">keyboard_arrow_down</mat-icon>
+        </a>
+      </li>
+    </ul>
+
+    <form class="filtering-form" name="filtering-form">
+      <label class="filtering-form-input-label">
+        <span
+          class="filtering-form-input-label-title"
+        >by word or sentence</span>
+        <input
+          class="filtering-form-input"
+          type="text"
+          name="filtering-sentence"
+          [(ngModel)]="filteringInput"
+          autocomplete="off"
+        >
+        <button
+          class="clear-button"
+          type="button"
+          aria-label="Clear filter request"
+          mat-button
+          *ngIf="filteringInput"
+          (click)="filteringInput=''"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </label>
+    </form>
+  </div>
+</mat-expansion-panel>

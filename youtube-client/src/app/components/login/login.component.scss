@@ -1,0 +1,22 @@
+@import 'src/scss/mixins.scss';
+@import 'src/scss/variables.scss';
+
+:host {
+  position: absolute;
+  right: 0;
+
+  @include flex;
+}
+
+.user-login {
+  line-height: 32px;
+  margin-right: 10px;
+
+  color: $main-dark-font-color;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
