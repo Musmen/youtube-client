@@ -1,5 +1,5 @@
 <mat-expansion-panel hideToggle [(expanded)]="isSortingPanelOpen">
-  <div class="sorting-block centralizer">
+  <div class="sorting-block">
     <span class="sorting-title">Sorting by:</span>
 
     <ul class="sorting-criteria-list list">
@@ -37,9 +37,9 @@
         <button
           class="clear-button"
           type="button"
-          aria-label="Clear filter request"
-          mat-button
           *ngIf="filteringInput"
+          mat-button
+          aria-label="Clear filter input"
           (click)="filteringInput=''"
         >
           <mat-icon>clear</mat-icon>

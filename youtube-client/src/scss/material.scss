@@ -1,4 +1,4 @@
-// customize search input field
+// customize search input field of the searching form
 .mat-form-field .mat-form-field-infix {
   border: 0;
 }
@@ -57,3 +57,19 @@
     padding: 0 .3em 0 .75em;
   }
 }
+
+// customize clear button input field of the filtering form
+.filtering-form .clear-button {
+  .mat-button-focus-overlay {
+    display: none;
+  }
+
+  .mat-button-ripple {
+    display: none;
+  }
+}
+
+// customize material expansion panel of the sorting block
+.mat-expansion-panel .mat-expansion-panel-body {
+  padding: 0;
+}   
