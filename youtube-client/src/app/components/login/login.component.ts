@@ -8,6 +8,7 @@ import { DEFAULT_USER } from '@common/constants';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
+
 export class LoginComponent {
   user: UserModel = DEFAULT_USER;
 }

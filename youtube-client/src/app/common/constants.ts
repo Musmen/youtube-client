@@ -9,3 +9,10 @@ export const DEFAULT_USER: UserModel = {
   password: 'Your Password',
   isAdmin: false,
 };
+
+export const LabelsIcons : { [key: string]: string } = {
+  viewCount: 'visibility',
+  favoriteCount: 'favorite',
+  dislikeCount: 'thumb_down',
+  commentCount: 'chat',
+};

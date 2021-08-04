@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import SearchResultsItem from '../../models/search-results/search-results-item.model';
 
 @Component({
@@ -8,5 +8,5 @@ import SearchResultsItem from '../../models/search-results/search-results-item.m
 })
 
 export class SearchResultsItemComponent {
-  searchResultItem?: SearchResultsItem;
+  @Input() searchResultsItem?: SearchResultsItem;
 }

@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.scss'],
 })
+
 export class SearchFormComponent {
   searchValue: string = '';
 }

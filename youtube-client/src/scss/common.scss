@@ -32,7 +32,10 @@ body {
 }
 
 :root .main-button {
+	color:  $main-light-color;
+
 	border: 1px solid $main-color;
+	background-color: $main-color;
 	
 	&:hover {
     color:  $main-color;
