@@ -6,9 +6,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Output() toggleSortingPanelEvent = new EventEmitter<void>();
+  @Output() private toggleSortingPanelEvent = new EventEmitter<void>();
+  @Output() private requestSearchResultsEvent = new EventEmitter<string>();
 
-  toggleSortingPanel() {
+  toggleSortingPanel(): void {
     this.toggleSortingPanelEvent.emit();
+  }
+
+  requestSearchResults(searchValue: string): void {
+    this.requestSearchResultsEvent.emit(searchValue);
   }
 }

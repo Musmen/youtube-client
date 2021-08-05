@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class SortingBlockComponent {
   @Input() isSortingPanelOpen: boolean = false;
 
-  filteringInput: string = '';
+  filteringInput?: string;
 }

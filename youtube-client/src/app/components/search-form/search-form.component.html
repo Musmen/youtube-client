@@ -25,6 +25,8 @@
     class="search-form-button submit-button main-button" 
     type="submit"
     mat-button 
+    aria-label="Request search results" 
+    (click)="requestSearchResults(searchValue)"
   >
     search
   </button>

@@ -1,4 +1,4 @@
 <app-logo></app-logo>
-<app-search-form></app-search-form>
-<app-settings-button (toggleSortingPanelEvent)="toggleSortingPanel()" ></app-settings-button>
+<app-search-form (requestSearchResultsEvent)="requestSearchResults($event)"></app-search-form>
+<app-settings-button (toggleSortingPanelEvent)="toggleSortingPanel()"></app-settings-button>
 <app-login></app-login>

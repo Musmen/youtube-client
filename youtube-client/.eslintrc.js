@@ -18,6 +18,7 @@ module.exports = {
         "class-methods-use-this": "off",
         "no-underscore-dangle": "off",
         "lines-between-class-members": "off",
+        "@typescript-eslint/lines-between-class-members": "off",
       }   
     },
     {

@@ -12,7 +12,6 @@ export class SearchResultsItemStatisticsComponent {
   @Input() statistics?: { [key: string]: string };
 
   labelsIcons = LabelsIcons;
-
   statisticLabels: string[];
 
   constructor() {
