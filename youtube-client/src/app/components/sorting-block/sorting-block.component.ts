@@ -16,7 +16,9 @@ import SortingState from '@app/models/common/sorting-state.model';
 export class SortingBlockComponent {
   @Input() isSortingPanelOpen: boolean = false;
   @Input() sortingState: SortingState;
+
   @Output() changeSortingStateEvent = new EventEmitter<SortingState>();
+  @Output() changeFilteringInputEvent = new EventEmitter<string>();
 
   filteringInput?: string;
 
@@ -33,5 +35,9 @@ export class SortingBlockComponent {
       this.sortingState.sortingBy = newSortingBy;
     }
     this.changeSortingStateEvent.emit(this.sortingState);
+  }
+
+  changeFilteringInput(): void {
+    this.changeFilteringInputEvent.emit(this.filteringInput);
   }
 }

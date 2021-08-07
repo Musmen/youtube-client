@@ -36,9 +36,10 @@
         <input
           class="filtering-form-input"
           type="text"
-          name="filtering-sentence"
+          name="filtering-input"
           [(ngModel)]="filteringInput"
           autocomplete="off"
+          (ngModelChange)="changeFilteringInput()"
         >
         <button
           class="clear-button"
@@ -46,7 +47,7 @@
           *ngIf="filteringInput"
           mat-button
           aria-label="Clear filter input"
-          (click)="filteringInput=''"
+          (click)="filteringInput='';changeFilteringInput()"
         >
           <mat-icon>clear</mat-icon>
         </button>

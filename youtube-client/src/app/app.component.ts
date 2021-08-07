@@ -17,24 +17,28 @@ export class AppComponent {
   isSortingPanelOpen: boolean ;
   searchResultsList: SearchResultsItem[];
   sortingState: SortingState = DEFAULT_SORTING_STATE;
+  filteringValue: string;
 
   constructor() {
     this.isSortingPanelOpen = false;
     this.searchResultsList = [];
     this.sortingState = DEFAULT_SORTING_STATE;
+    this.filteringValue = '';
   }
 
   toggleSortingPanel(): void {
     this.isSortingPanelOpen = !this.isSortingPanelOpen;
   }
 
-  requestSearchResults(searchValue: string): void {
-    this.searchResultsList = (searchValue)
-      ? getParsedYoutubeResponse(mockYoutubeResponse)
-      : [];
+  requestSearchResults(): void {
+    this.searchResultsList = getParsedYoutubeResponse(mockYoutubeResponse);
   }
 
   changeSortingState(newSortingState: SortingState): void {
     this.sortingState = { ...newSortingState };
+  }
+
+  changeFilteringInput(filteringValue: string): void {
+    this.filteringValue = filteringValue;
   }
 }

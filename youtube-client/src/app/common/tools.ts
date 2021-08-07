@@ -26,23 +26,6 @@ export const getParsedYoutubeResponse: ParseYoutubeResponseFunctionType = (
   mockYoutubeResponse: YoutubeResponce,
 ) => parseYoutubeResponse(mockYoutubeResponse);
 
-type CompareFunctionType = (
-  firstCompareItem: number,
-  secondCompareItem: number,
-  isIncreasing: boolean,
-) => number;
-
-export const compare: CompareFunctionType = (
-  firstCompareItem: number,
-  secondCompareItem: number,
-  isIncreasing: boolean,
-) => {
-  if (isIncreasing) {
-    return firstCompareItem - secondCompareItem;
-  }
-  return secondCompareItem - firstCompareItem;
-};
-
 type GetValueType = (item: SearchResultsItem) => number;
 
 export const getDateValue: GetValueType = (

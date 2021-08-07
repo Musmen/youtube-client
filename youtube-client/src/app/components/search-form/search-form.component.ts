@@ -11,7 +11,7 @@ export class SearchFormComponent {
 
   searchValue?: string;
 
-  requestSearchResults(searchValue: string = ''): void {
-    this.requestSearchResultsEvent.emit(searchValue);
+  requestSearchResults(): void {
+    this.requestSearchResultsEvent.emit();
   }
 }

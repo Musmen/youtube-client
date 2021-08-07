@@ -22,6 +22,7 @@ import { SearchResultsListComponent } from './components/search-results-list/sea
 import { SearchResultsItemComponent } from './components/search-results-item/search-results-item.component';
 import { SearchResultsItemStatisticsComponent } from './components/search-results-item-statistics/search-results-item-statistics.component';
 import { SortingPipe } from './pipes/sorting.pipe';
+import { FilterPipe } from './pipes/filter/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SortingPipe } from './pipes/sorting.pipe';
     SearchResultsItemComponent,
     SearchResultsItemStatisticsComponent,
     SortingPipe,
+    FilterPipe,
   ],
   imports: [
     FormsModule,

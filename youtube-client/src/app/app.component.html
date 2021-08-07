@@ -1,14 +1,16 @@
 <app-header 
   (toggleSortingPanelEvent)="toggleSortingPanel()"
-  (requestSearchResultsEvent)="requestSearchResults($event)"
+  (requestSearchResultsEvent)="requestSearchResults()"
 ></app-header>
 <app-sorting-block 
   [isSortingPanelOpen]="isSortingPanelOpen"
   [sortingState]="sortingState"
   (changeSortingStateEvent)="changeSortingState($event)"
+  (changeFilteringInputEvent)="changeFilteringInput($event)"
 >
 </app-sorting-block>
 <app-search-results-list 
   [searchResultsList]="searchResultsList"
   [sortingState]="sortingState"
+  [filteringValue]="filteringValue"
 ></app-search-results-list>

@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { compare, getDateValue, getViewCountValue } from '@app/common/tools';
+import { getDateValue, getViewCountValue } from '@app/common/tools';
+import { compare } from '@app/common/helper';
 import { SortingValues } from '@app/common/constants';
 
 import SearchResultsItem from '@app/models/search-results/search-results-item.model';

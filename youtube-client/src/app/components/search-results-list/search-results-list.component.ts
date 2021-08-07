@@ -12,4 +12,5 @@ import SortingState from '@app/models/common/sorting-state.model';
 export class SearchResultsListComponent {
   @Input() searchResultsList?: SearchResultsItem[];
   @Input() sortingState?: SortingState;
+  @Input() filteringValue?: string;
 }
