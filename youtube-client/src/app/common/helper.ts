@@ -15,6 +15,15 @@ export const compare: CompareFunctionType = (
   return secondCompareItem - firstCompareItem;
 };
 
+type GetTimeInMilliseconds = (date: string) => number;
+
+export const getTimeInMilliseconds: GetTimeInMilliseconds = (
+  date: string,
+) => {
+  if (date) return new Date(date).getTime();
+  return new Date().getTime();
+};
+
 type GetTrimmedStringInLowerCaseType = (string: string) => string;
 
 export const getTrimmedStringInLowerCase: GetTrimmedStringInLowerCaseType = (

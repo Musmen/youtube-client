@@ -1,4 +1,8 @@
-<div class="search-result-card" *ngIf="searchResultsItem">
+<div 
+  class="search-result-card" 
+  *ngIf="searchResultsItem" 
+  [appBorderColorizer]="searchResultsItem.publishedAt"
+>
   <a class="search-result-card__link" 
     [href]="'https://www.youtube.com/watch?v=' + searchResultsItem.id" 
     target="_blank"

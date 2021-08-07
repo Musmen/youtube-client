@@ -23,6 +23,11 @@ import { SearchResultsItemComponent } from './components/search-results-item/sea
 import { SearchResultsItemStatisticsComponent } from './components/search-results-item-statistics/search-results-item-statistics.component';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
+import { BorderColorizerDirective } from './directives/border-colorizer/border-colorizer.directive';
+
+const materialModules = [
+  MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatExpansionModule,
+];
 
 @NgModule({
   declarations: [
@@ -38,17 +43,14 @@ import { FilterPipe } from './pipes/filter/filter.pipe';
     SearchResultsItemStatisticsComponent,
     SortingPipe,
     FilterPipe,
+    BorderColorizerDirective,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatButtonModule,
-    MatExpansionModule,
+    ...materialModules,
   ],
   providers: [],
   bootstrap: [AppComponent],
