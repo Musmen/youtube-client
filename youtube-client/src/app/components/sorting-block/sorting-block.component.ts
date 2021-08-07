@@ -1,4 +1,12 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
+
+import { DEFAULT_SORTING_STATE } from '@common/constants';
+import SortingState from '@app/models/common/sorting-state.model';
 
 @Component({
   selector: 'app-sorting-block',
@@ -7,6 +15,23 @@ import { Component, Input } from '@angular/core';
 })
 export class SortingBlockComponent {
   @Input() isSortingPanelOpen: boolean = false;
+  @Input() sortingState: SortingState;
+  @Output() changeSortingStateEvent = new EventEmitter<SortingState>();
 
   filteringInput?: string;
+
+  constructor() {
+    this.filteringInput = '';
+    this.isSortingPanelOpen = false;
+    this.sortingState = DEFAULT_SORTING_STATE;
+  }
+
+  changeSortingState(newSortingBy: string): void {
+    if (this.sortingState.sortingBy === newSortingBy) {
+      this.sortingState.isIncreasing = !this.sortingState.isIncreasing;
+    } else {
+      this.sortingState.sortingBy = newSortingBy;
+    }
+    this.changeSortingStateEvent.emit(this.sortingState);
+  }
 }

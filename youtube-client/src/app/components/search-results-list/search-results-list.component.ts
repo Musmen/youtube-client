@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+
 import SearchResultsItem from '@app/models/search-results/search-results-item.model';
+import SortingState from '@app/models/common/sorting-state.model';
 
 @Component({
   selector: 'app-search-results-list',
@@ -9,4 +11,5 @@ import SearchResultsItem from '@app/models/search-results/search-results-item.mo
 
 export class SearchResultsListComponent {
   @Input() searchResultsList?: SearchResultsItem[];
+  @Input() sortingState?: SortingState;
 }

@@ -1,5 +1,9 @@
 <ul class="search-results-list list" *ngIf="searchResultsList">
-  <li class="search-results-item" *ngFor="let searchResultsItem of searchResultsList">
+  <li 
+    class="search-results-item" 
+    *ngFor="let searchResultsItem of searchResultsList 
+      | sorting :sortingState"
+  >
     <app-search-results-item [searchResultsItem]="searchResultsItem"></app-search-results-item>
   </li>
 </ul>

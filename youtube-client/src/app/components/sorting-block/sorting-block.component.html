@@ -6,6 +6,9 @@
       <li class="sorting-criteria-item">
         <a
           class="sorting-criteria-link"
+          [class.increasing]="sortingState.isIncreasing"
+          [class.active]="sortingState.sortingBy === 'date'"
+          (click)="changeSortingState('date')"
         >
           <span class="text-underline">date</span>
           <mat-icon class="sorting-direction-icon">keyboard_arrow_down</mat-icon>
@@ -15,6 +18,9 @@
       <li class="sorting-criteria-item">
         <a
           class="sorting-criteria-link"
+          [class.increasing]="sortingState.isIncreasing"
+          [class.active]="sortingState.sortingBy === 'viewsCount'"
+          (click)="changeSortingState('viewsCount')"
         >
           <span class="text-underline">count of views</span>
           <mat-icon class="sorting-direction-icon">keyboard_arrow_down</mat-icon>

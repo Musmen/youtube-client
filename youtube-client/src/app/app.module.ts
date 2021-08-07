@@ -21,6 +21,7 @@ import { SortingBlockComponent } from './components/sorting-block/sorting-block.
 import { SearchResultsListComponent } from './components/search-results-list/search-results-list.component';
 import { SearchResultsItemComponent } from './components/search-results-item/search-results-item.component';
 import { SearchResultsItemStatisticsComponent } from './components/search-results-item-statistics/search-results-item-statistics.component';
+import { SortingPipe } from './pipes/sorting.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SearchResultsItemStatisticsComponent } from './components/search-result
     SearchResultsListComponent,
     SearchResultsItemComponent,
     SearchResultsItemStatisticsComponent,
+    SortingPipe,
   ],
   imports: [
     FormsModule,
