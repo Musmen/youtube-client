@@ -16,7 +16,6 @@
   border-bottom: 5px solid $main-yellow;
 
   background-color: $main-bg-color-light;
-  box-shadow: 2px 2px 4px #00000040;
 
   overflow: hidden;
 }
@@ -44,6 +43,8 @@
   height: 32px;
 
   line-height: 32px;
+
+  box-shadow: 1px 0px 6px 0px $main-color;
 }
 
 .search-result-card__link {
