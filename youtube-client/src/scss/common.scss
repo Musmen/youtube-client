@@ -1,0 +1,49 @@
+@import './variables.scss';
+
+html, body { 
+	height: 100%; 
+}
+
+body { 
+	margin: 0; 
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.visually-hidden {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+.list {
+	padding: 0;
+
+	list-style: none;
+}
+
+:root .main-button {
+	color:  $main-light-color;
+
+	border: 1px solid $main-color;
+	background-color: $main-color;
+	
+	&:hover {
+    color:  $main-color;
+
+    background-color: $main-light-color;
+  }
+}
+
+.shadow {
+	box-shadow: 2px 2px 4px 0px #00000040;
+}

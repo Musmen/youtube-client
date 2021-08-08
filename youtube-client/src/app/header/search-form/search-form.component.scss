@@ -1,0 +1,28 @@
+@import 'src/scss/mixins.scss';
+@import 'src/scss/variables.scss';
+
+.search-form {
+  @include flex;
+}
+
+.search-form-field {
+  width: 396px;
+  height: 36px;
+}
+
+.search-form-input {
+  height: 36px;
+}
+
+.search-form-button {
+  height: 36px;
+  margin-right: 10px;
+
+  color: $main-light-color;
+  line-height: 36px;
+
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: $main-color;
+}
+

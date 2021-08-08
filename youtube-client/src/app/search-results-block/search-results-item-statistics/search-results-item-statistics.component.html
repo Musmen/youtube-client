@@ -1,0 +1,13 @@
+<ul class="search-card__statistics_list list" *ngIf="statistics">
+  <li
+    class="search-card__statistics_item"
+    *ngFor="let statisticLabel of statisticLabels"
+  >
+    <span class="statistics__icon icon_{{ statisticLabel }}">
+      <mat-icon>{{ labelsIcons[statisticLabel] }}</mat-icon>
+    </span>
+    <span class="statistics__count count_{{ statisticLabel }}">
+      {{ statistics[statisticLabel] }}
+    </span>
+  </li>
+</ul>
