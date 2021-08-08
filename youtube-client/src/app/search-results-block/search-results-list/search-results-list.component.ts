@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import SearchResultsItem from '@app/models/search-results/search-results-item.model';
-import SortingState from '@app/models/common/sorting-state.model';
+import SortState from '@app/models/common/sort-state.model';
 
 @Component({
   selector: 'app-search-results-list',
@@ -11,6 +11,6 @@ import SortingState from '@app/models/common/sorting-state.model';
 
 export class SearchResultsListComponent {
   @Input() searchResultsList?: SearchResultsItem[];
-  @Input() sortingState?: SortingState;
+  @Input() sortState?: SortState;
   @Input() filteringValue?: string;
 }

@@ -4,13 +4,13 @@
 ></app-header>
 <app-sorting-block 
   [isSortingPanelOpen]="isSortingPanelOpen"
-  [sortingState]="sortingState"
-  (changeSortingStateEvent)="changeSortingState($event)"
+  [sortState]="sortState"
+  (changeSortStateEvent)="changeSortState($event)"
   (changeFilteringInputEvent)="changeFilteringInput($event)"
 >
 </app-sorting-block>
 <app-search-results-list 
   [searchResultsList]="searchResultsList"
-  [sortingState]="sortingState"
+  [sortState]="sortState"
   [filteringValue]="filteringValue"
 ></app-search-results-list>

@@ -2,7 +2,7 @@
   <li 
     class="search-results-item" 
     *ngFor="let searchResultsItem of searchResultsList 
-      | sorting: sortingState
+      | sort: sortState
       | filter: filteringValue"
   >
     <app-search-results-item [searchResultsItem]="searchResultsItem"></app-search-results-item>

@@ -1,5 +1,5 @@
 import UserModel from '@app/models/user/user.model';
-import SortingState from '@app/models/common/sorting-state.model';
+import SortingState from '@app/models/common/sort-state.model';
 
 export const LOGO_TITLE = 'YouTube Client';
 
@@ -18,7 +18,7 @@ export const LabelsIcons : { [key: string]: string } = {
   commentCount: 'chat',
 };
 
-export const DEFAULT_SORTING_STATE: SortingState = {
+export const DEFAULT_SORT_STATE: SortingState = {
   sortingBy: '',
   isIncreasing: false,
 };

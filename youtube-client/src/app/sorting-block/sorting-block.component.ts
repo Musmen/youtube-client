@@ -5,8 +5,8 @@ import {
   Output,
 } from '@angular/core';
 
-import { DEFAULT_SORTING_STATE } from '@common/constants';
-import SortingState from '@app/models/common/sorting-state.model';
+import { DEFAULT_SORT_STATE } from '@common/constants';
+import SortState from '@app/models/common/sort-state.model';
 
 @Component({
   selector: 'app-sorting-block',
@@ -15,9 +15,9 @@ import SortingState from '@app/models/common/sorting-state.model';
 })
 export class SortingBlockComponent {
   @Input() isSortingPanelOpen: boolean = false;
-  @Input() sortingState: SortingState;
+  @Input() sortState: SortState;
 
-  @Output() changeSortingStateEvent = new EventEmitter<SortingState>();
+  @Output() changeSortStateEvent = new EventEmitter<SortState>();
   @Output() changeFilteringInputEvent = new EventEmitter<string>();
 
   filteringInput?: string;
@@ -25,16 +25,16 @@ export class SortingBlockComponent {
   constructor() {
     this.filteringInput = '';
     this.isSortingPanelOpen = false;
-    this.sortingState = DEFAULT_SORTING_STATE;
+    this.sortState = DEFAULT_SORT_STATE;
   }
 
-  changeSortingState(newSortingBy: string): void {
-    if (this.sortingState.sortingBy === newSortingBy) {
-      this.sortingState.isIncreasing = !this.sortingState.isIncreasing;
+  changeSortState(newSortingBy: string): void {
+    if (this.sortState.sortingBy === newSortingBy) {
+      this.sortState.isIncreasing = !this.sortState.isIncreasing;
     } else {
-      this.sortingState.sortingBy = newSortingBy;
+      this.sortState.sortingBy = newSortingBy;
     }
-    this.changeSortingStateEvent.emit(this.sortingState);
+    this.changeSortStateEvent.emit(this.sortState);
   }
 
   changeFilteringInput(): void {

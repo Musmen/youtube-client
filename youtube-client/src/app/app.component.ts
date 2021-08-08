@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 import { getParsedYoutubeResponse } from '@app/common/tools';
-import { DEFAULT_SORTING_STATE } from '@app/common/constants';
+import { DEFAULT_SORT_STATE } from '@app/common/constants';
 import mockYoutubeResponse from '@app/mock-youtube-response/mock-youtube-response';
 
 import SearchResultsItem from '@app/models/search-results/search-results-item.model';
-import SortingState from '@app/models/common/sorting-state.model';
+import SortState from '@app/models/common/sort-state.model';
 
 @Component({
   selector: 'app-root',
@@ -16,13 +16,13 @@ import SortingState from '@app/models/common/sorting-state.model';
 export class AppComponent {
   isSortingPanelOpen: boolean ;
   searchResultsList: SearchResultsItem[];
-  sortingState: SortingState = DEFAULT_SORTING_STATE;
+  sortState: SortState = DEFAULT_SORT_STATE;
   filteringValue: string;
 
   constructor() {
     this.isSortingPanelOpen = false;
     this.searchResultsList = [];
-    this.sortingState = DEFAULT_SORTING_STATE;
+    this.sortState = DEFAULT_SORT_STATE;
     this.filteringValue = '';
   }
 
@@ -34,8 +34,8 @@ export class AppComponent {
     this.searchResultsList = getParsedYoutubeResponse(mockYoutubeResponse);
   }
 
-  changeSortingState(newSortingState: SortingState): void {
-    this.sortingState = { ...newSortingState };
+  changeSortState(newSortState: SortState): void {
+    this.sortState = { ...newSortState };
   }
 
   changeFilteringInput(filteringValue: string): void {

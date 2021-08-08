@@ -1,4 +1,4 @@
-export default interface SortingState {
+export default interface SortState {
   isIncreasing: boolean,
   sortingBy: string,
 }

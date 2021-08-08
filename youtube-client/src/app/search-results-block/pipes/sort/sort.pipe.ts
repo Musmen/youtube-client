@@ -5,17 +5,17 @@ import { compare } from '@app/common/helper';
 import { SortingValues } from '@app/common/constants';
 
 import SearchResultsItem from '@app/models/search-results/search-results-item.model';
-import SortingState from '@app/models/common/sorting-state.model';
+import SortState from '@app/models/common/sort-state.model';
 
-@Pipe({ name: 'sorting' })
-export class SortingPipe implements PipeTransform {
+@Pipe({ name: 'sort' })
+export class SortPipe implements PipeTransform {
   transform(
     searchResultsList: SearchResultsItem[],
-    sortingState?: SortingState,
+    sortState?: SortState,
   ): SearchResultsItem[] {
-    if (!sortingState) return searchResultsList;
+    if (!sortState) return searchResultsList;
 
-    const getCompareValue = (sortingState.sortingBy === SortingValues.date)
+    const getCompareValue = (sortState.sortingBy === SortingValues.date)
       ? getDateValue
       : getViewCountValue;
 
@@ -23,7 +23,7 @@ export class SortingPipe implements PipeTransform {
       (firstCompareItem: SearchResultsItem, secondCompareItem: SearchResultsItem) => compare(
         getCompareValue(firstCompareItem),
         getCompareValue(secondCompareItem),
-        sortingState.isIncreasing,
+        sortState.isIncreasing,
       ),
     );
   }
