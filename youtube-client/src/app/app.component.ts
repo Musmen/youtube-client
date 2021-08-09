@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { getParsedYoutubeResponse } from '@app/common/tools';
 import { DEFAULT_SORT_STATE } from '@app/common/constants';
@@ -11,6 +11,7 @@ import SortState from '@app/models/common/sort-state.model';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class AppComponent {

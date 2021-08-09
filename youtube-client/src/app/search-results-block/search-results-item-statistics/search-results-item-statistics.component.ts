@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { LabelsIcons } from '@common/constants';
 
@@ -6,6 +6,7 @@ import { LabelsIcons } from '@common/constants';
   selector: 'app-search-results-item-statistics',
   templateUrl: './search-results-item-statistics.component.html',
   styleUrls: ['./search-results-item-statistics.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class SearchResultsItemStatisticsComponent {

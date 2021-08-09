@@ -3,6 +3,7 @@ import {
   EventEmitter,
   Input,
   Output,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { DEFAULT_SORT_STATE } from '@common/constants';
@@ -12,6 +13,7 @@ import SortState from '@app/models/common/sort-state.model';
   selector: 'app-sorting-block',
   templateUrl: './sorting-block.component.html',
   styleUrls: ['./sorting-block.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SortingBlockComponent {
   @Input() isSortingPanelOpen: boolean = false;
