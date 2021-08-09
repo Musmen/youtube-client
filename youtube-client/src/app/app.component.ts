@@ -1,11 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
-import { getParsedYoutubeResponse } from '@app/common/tools';
-import { DEFAULT_SORT_STATE } from '@app/common/constants';
-import mockYoutubeResponse from '@app/mock-youtube-response/mock-youtube-response';
+// import { getParsedYoutubeResponse } from '@app/common/tools';
+// import { DEFAULT_SORT_STATE } from '@app/common/constants';
+// import mockYoutubeResponse from '@app/youtube/mock-youtube-response/mock-youtube-response';
 
-import SearchResultsItem from '@app/models/search-results/search-results-item.model';
-import SortState from '@app/models/common/sort-state.model';
+// import SearchResultsItem from '@app/models/search-results/search-results-item.model';
+// import SortState from '@app/models/common/sort-state.model';
 
 @Component({
   selector: 'app-root',
@@ -15,31 +15,31 @@ import SortState from '@app/models/common/sort-state.model';
 })
 
 export class AppComponent {
-  isSortingPanelOpen: boolean ;
-  searchResultsList: SearchResultsItem[];
-  sortState: SortState = DEFAULT_SORT_STATE;
-  filteringValue: string;
+  // isSortingPanelOpen: boolean ;
+  // searchResultsList: SearchResultsItem[];
+  // sortState: SortState = DEFAULT_SORT_STATE;
+  // filteringValue: string;
 
-  constructor() {
-    this.isSortingPanelOpen = false;
-    this.searchResultsList = [];
-    this.sortState = DEFAULT_SORT_STATE;
-    this.filteringValue = '';
-  }
+  // constructor() {
+  //   this.isSortingPanelOpen = false;
+  //   this.searchResultsList = [];
+  //   this.sortState = DEFAULT_SORT_STATE;
+  //   this.filteringValue = '';
+  // }
 
-  toggleSortingPanel(): void {
-    this.isSortingPanelOpen = !this.isSortingPanelOpen;
-  }
+  // toggleSortingPanel(): void {
+  //   this.isSortingPanelOpen = !this.isSortingPanelOpen;
+  // }
 
-  requestSearchResults(): void {
-    this.searchResultsList = getParsedYoutubeResponse(mockYoutubeResponse);
-  }
+  // requestSearchResults(): void {
+  //   this.searchResultsList = getParsedYoutubeResponse(mockYoutubeResponse);
+  // }
 
-  changeSortState(newSortState: SortState): void {
-    this.sortState = { ...newSortState };
-  }
+  // changeSortState(newSortState: SortState): void {
+  //   this.sortState = { ...newSortState };
+  // }
 
-  changeFilteringInput(filteringValue: string): void {
-    this.filteringValue = filteringValue;
-  }
+  // changeFilteringInput(filteringValue: string): void {
+  //   this.filteringValue = filteringValue;
+  // }
 }

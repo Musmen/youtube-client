@@ -5,8 +5,12 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "paths": {
-      "@app/*": ["src/app/*"],
       "@common/*": ["src/app/common/*"],
+      "@app/*": ["src/app/*"],
+      "@core/*": ["src/app/core/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@youtube/*": ["src/app/youtube/*"],
+      "@auth/*": ["src/app/auth/*"],
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
