@@ -14,4 +14,8 @@ export class SearchResultsListComponent {
   @Input() searchResultsList?: SearchResultsItem[];
   @Input() sortState?: SortState;
   @Input() filteringValue?: string;
+
+  searchResultsItemById(index: number, item: SearchResultsItem): SearchResultsItem['id'] {
+    return item.id;
+  }
 }
