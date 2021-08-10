@@ -1,4 +1,4 @@
-<form class="search-form form" name="search">
+<form class="search-form form" name="search" (submit)="setSearchValue()">
   <mat-form-field class="search-form-field" appearance="outline">
     <mat-label>Enter youtube video title</mat-label>
     <input 
@@ -26,7 +26,6 @@
     type="submit"
     mat-button 
     aria-label="Request search results" 
-    (click)="requestSearchResults()"
   >
     search
   </button>

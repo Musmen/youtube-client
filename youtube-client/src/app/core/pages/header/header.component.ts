@@ -1,9 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Output,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
+import { StateService } from '@core/services/state/state.service';
 
 @Component({
   selector: 'app-header',
@@ -12,14 +9,17 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  @Output() private toggleSortingPanelEvent = new EventEmitter<void>();
-  @Output() private requestSearchResultsEvent = new EventEmitter<string>();
+  constructor(private _stateService: StateService) { }
 
   toggleSortingPanel(): void {
-    this.toggleSortingPanelEvent.emit();
+    this._stateService.toggleSortingPanel();
   }
 
-  requestSearchResults(searchValue: string): void {
-    this.requestSearchResultsEvent.emit(searchValue);
+  get searchValue(): string {
+    return this._stateService.getSearchValue();
+  }
+
+  setSearchValue(searchValue: string): void {
+    this._stateService.setSearchValue(searchValue);
   }
 }

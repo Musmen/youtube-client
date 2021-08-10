@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { DEFAULT_SORT_STATE } from '@app/common/constants';
+import { StateService } from '@core/services/state/state.service';
+import { YoutubeService } from '@youtube/services/youtube/youtube.service';
 
 import SearchResultsItem from '@app/models/search-results/search-results-item.model';
 import SortState from '@app/models/common/sort-state.model';
@@ -12,23 +13,33 @@ import SortState from '@app/models/common/sort-state.model';
 })
 
 export class MainPageComponent {
-  isSortingPanelOpen: boolean ;
-  searchResultsList: SearchResultsItem[];
-  sortState: SortState = DEFAULT_SORT_STATE;
-  filteringValue: string;
+  constructor(
+    private _stateService: StateService,
+    private _youtubeService: YoutubeService,
+  ) { }
 
-  constructor() {
-    this.isSortingPanelOpen = false;
-    this.searchResultsList = [];
-    this.sortState = DEFAULT_SORT_STATE;
-    this.filteringValue = '';
+  get searchResults(): SearchResultsItem[] {
+    const currentSearchValue = this._stateService.getSearchValue();
+    return this._youtubeService.getSearchResults(currentSearchValue);
   }
 
-  changeSortState(newSortState: SortState): void {
-    this.sortState = { ...newSortState };
+  get isSortingPanelOpen(): boolean {
+    return this._stateService.getIsSortingPanelOpen();
   }
 
-  changeFilteringInput(filteringValue: string): void {
-    this.filteringValue = filteringValue;
+  get sortState(): SortState {
+    return this._stateService.getSortState();
+  }
+
+  setSortState(newSortState: SortState): void {
+    this._stateService.setSortState(newSortState);
+  }
+
+  get filteringValue(): string {
+    return this._stateService.getFilteringValue();
+  }
+
+  setFilteringValue(filteringValue: string): void {
+    this._stateService.setFilteringValue(filteringValue);
   }
 }
