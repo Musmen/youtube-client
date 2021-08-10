@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
-import { LOGO_TITLE } from '@common/constants';
+import { LOGO_TITLE } from '@core/common/constants';
 
 @Component({
   selector: 'app-logo',
@@ -10,5 +10,9 @@ import { LOGO_TITLE } from '@common/constants';
 })
 
 export class LogoComponent {
-  logoTitle: string = LOGO_TITLE;
+  logoTitle: string;
+
+  constructor() {
+    this.logoTitle = LOGO_TITLE;
+  }
 }

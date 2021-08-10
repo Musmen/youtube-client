@@ -1,5 +1,5 @@
 <span class="user-login">
-  {{ user.login | slice:0 :10 | titlecase }}
+  {{ user.login | slice:0:MAX_USER_LOGIN_LENGTH | titlecase }}
 </span>
 <img 
   class="user-avatar shadow" 

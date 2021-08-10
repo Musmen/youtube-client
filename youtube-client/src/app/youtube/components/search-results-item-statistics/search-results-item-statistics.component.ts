@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
-import { LabelsIcons } from '@common/constants';
+import { LabelsIcons } from '@youtube/common/constants';
 
 @Component({
   selector: 'app-search-results-item-statistics',

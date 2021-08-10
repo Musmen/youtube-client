@@ -5,7 +5,7 @@ import { LogoComponent } from '@core/components/logo/logo.component';
 import { SearchFormComponent } from '@core/components/search-form/search-form.component';
 import { SettingsButtonComponent } from '@core/components/settings-button/settings-button.component';
 import { LoginComponent } from '@core/components/login/login.component';
-import { HeaderComponent } from '@app/core/pages/header/header.component';
+import { HeaderComponent } from '@core/pages/header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +16,6 @@ import { HeaderComponent } from '@app/core/pages/header/header.component';
     HeaderComponent,
   ],
   imports: [SharedModule],
-  exports: [
-    HeaderComponent,
-  ],
+  exports: [HeaderComponent],
 })
 export class CoreModule { }

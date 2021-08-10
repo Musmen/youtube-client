@@ -1,11 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { getDateValue, getViewCountValue } from '@app/common/tools';
-import { compare } from '@app/common/helper';
-import { SortingValues } from '@app/common/constants';
+import { getDateValue, getViewCountValue } from '@youtube/common/tools';
+import { compare } from '@youtube/common/helper';
+import { SortingValues } from '@youtube/common/constants';
 
-import SearchResultsItem from '@app/models/search-results/search-results-item.model';
-import SortState from '@app/models/common/sort-state.model';
+import SearchResultsItem from '@youtube/models/search-results-item.model';
+import SortState from '@youtube/models/sort-state.model';
 
 @Pipe({ name: 'sort' })
 export class SortPipe implements PipeTransform {

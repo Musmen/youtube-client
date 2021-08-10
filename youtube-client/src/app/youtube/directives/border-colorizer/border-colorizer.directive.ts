@@ -6,8 +6,8 @@ import {
   Renderer2,
 } from '@angular/core';
 
-import { getNewBorderColor } from '@common/tools';
-import { getTimeInMilliseconds } from '@common/helper';
+import { getNewBorderColor } from '@youtube/common/tools';
+import { getTimeInMilliseconds } from '@youtube/common/helper';
 
 @Directive({ selector: '[appBorderColorizer]' })
 export class BorderColorizerDirective implements OnChanges {

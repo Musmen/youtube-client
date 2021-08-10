@@ -1,6 +1,6 @@
-import YoutubeResponce from '@app/models/youtube-response/youtube-response.model';
-import YoutubeResponceItem from '@app/models/youtube-response/youtube-response-item.model';
-import SearchResultsItem from '@app/models/search-results/search-results-item.model';
+import YoutubeResponce from '@youtube/models/youtube-response/youtube-response.model';
+import YoutubeResponceItem from '@youtube/models/youtube-response/youtube-response-item.model';
+import SearchResultsItem from '@youtube/models/search-results-item.model';
 
 import { getTimeInMilliseconds } from './helper';
 import { TIME_IN_MILLISECONDS, Colors } from './constants';

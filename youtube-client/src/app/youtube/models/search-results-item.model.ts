@@ -1,6 +1,6 @@
-import YoutubeResponceItem from '../youtube-response/youtube-response-item.model';
-import YoutubeResponceStatistics from '../youtube-response/youtube-response-statistics.model';
-import YoutubeResponceThumbnails from '../youtube-response/youtube-response-thumbnails.model';
+import YoutubeResponceItem from './youtube-response/youtube-response-item.model';
+import YoutubeResponceStatistics from './youtube-response/youtube-response-statistics.model';
+import YoutubeResponceThumbnails from './youtube-response/youtube-response-thumbnails.model';
 
 export default interface SearchResultItem {
   id: YoutubeResponceItem['id'],

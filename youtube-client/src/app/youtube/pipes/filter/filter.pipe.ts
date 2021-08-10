@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import SearchResultsItem from '@app/models/search-results/search-results-item.model';
-import { getTrimmedStringInLowerCase } from '@common/helper';
+import SearchResultsItem from '@youtube/models/search-results-item.model';
+import { getTrimmedStringInLowerCase } from '@youtube/common/helper';
 
 @Pipe({ name: 'filter' })
 export class FilterPipe implements PipeTransform {

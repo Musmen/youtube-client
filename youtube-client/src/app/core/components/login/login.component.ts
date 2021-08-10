@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
-import UserModel from '@app/models/user/user.model';
-import { DEFAULT_USER } from '@common/constants';
+import UserModel from '@core/models/user.model';
+import { DEFAULT_USER, MAX_USER_LOGIN_LENGTH } from '@core/common/constants';
 
 @Component({
   selector: 'app-login',
@@ -11,5 +11,11 @@ import { DEFAULT_USER } from '@common/constants';
 })
 
 export class LoginComponent {
-  user: UserModel = DEFAULT_USER;
+  user: UserModel;
+  MAX_USER_LOGIN_LENGTH: number;
+
+  constructor() {
+    this.user = DEFAULT_USER;
+    this.MAX_USER_LOGIN_LENGTH = MAX_USER_LOGIN_LENGTH;
+  }
 }

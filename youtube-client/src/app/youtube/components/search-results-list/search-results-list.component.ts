@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
-import SearchResultsItem from '@app/models/search-results/search-results-item.model';
-import SortState from '@app/models/common/sort-state.model';
+import SearchResultsItem from '@youtube/models/search-results-item.model';
+import SortState from '@youtube/models/sort-state.model';
 
 @Component({
   selector: 'app-search-results-list',

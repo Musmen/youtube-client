@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { getParsedYoutubeResponse } from '@app/common/tools';
-import SearchResultsItem from '@app/models/search-results/search-results-item.model';
-import mockYoutubeResponse from '@app/youtube/mock-youtube-response/mock-youtube-response';
+import { getParsedYoutubeResponse } from '@youtube/common/tools';
+import SearchResultsItem from '@youtube/models/search-results-item.model';
+import mockYoutubeResponse from '@youtube/mock-youtube-response/mock-youtube-response';
 
 @Injectable()
 export class YoutubeService {

@@ -3,8 +3,10 @@ import { Component } from '@angular/core';
 import { StateService } from '@core/services/state/state.service';
 import { YoutubeService } from '@youtube/services/youtube/youtube.service';
 
-import SearchResultsItem from '@app/models/search-results/search-results-item.model';
-import SortState from '@app/models/common/sort-state.model';
+import SearchResultsItem from '@youtube/models/search-results-item.model';
+import SortState from '@youtube/models/sort-state.model';
+
+import { DEFAULT_SORT_STATE } from '@youtube/common/constants';
 
 @Component({
   selector: 'app-main-page',
@@ -28,7 +30,7 @@ export class MainPageComponent {
   }
 
   get sortState(): SortState {
-    return this._stateService.getSortState();
+    return this._stateService.getSortState() || DEFAULT_SORT_STATE;
   }
 
   setSortState(newSortState: SortState): void {

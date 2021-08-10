@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 
-import { DEFAULT_SORT_STATE } from '@app/common/constants';
-import SortState from '@app/models/common/sort-state.model';
+import SortState from '@youtube/models/sort-state.model';
 
 @Injectable({ providedIn: 'root' })
 export class StateService {
   private _searchValue: string;
   private _isSortingPanelOpen: boolean;
-  private _sortState: SortState;
+  private _sortState?: SortState;
   private _filteringValue: string;
 
   constructor() {
     this._searchValue = '';
     this._isSortingPanelOpen = false;
-    this._sortState = DEFAULT_SORT_STATE;
     this._filteringValue = '';
   }
 
@@ -29,7 +27,7 @@ export class StateService {
     this._sortState = { ...newSortState };
   }
 
-  getSortState(): SortState {
+  getSortState(): SortState | undefined {
     return this._sortState;
   }
 

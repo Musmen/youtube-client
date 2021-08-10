@@ -14,7 +14,6 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     CoreModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 

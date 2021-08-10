@@ -6,8 +6,8 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 
-import { DEFAULT_SORT_STATE } from '@common/constants';
-import SortState from '@app/models/common/sort-state.model';
+import { DEFAULT_SORT_STATE } from '@youtube/common/constants';
+import SortState from '@youtube/models/sort-state.model';
 
 @Component({
   selector: 'app-sorting-block',
@@ -16,7 +16,7 @@ import SortState from '@app/models/common/sort-state.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SortingBlockComponent {
-  @Input() isSortingPanelOpen: boolean = false;
+  @Input() isSortingPanelOpen?: boolean;
   @Input() sortState: SortState;
 
   @Output() changeSortStateEvent = new EventEmitter<SortState>();
@@ -26,7 +26,6 @@ export class SortingBlockComponent {
 
   constructor() {
     this.filteringInput = '';
-    this.isSortingPanelOpen = false;
     this.sortState = DEFAULT_SORT_STATE;
   }
 

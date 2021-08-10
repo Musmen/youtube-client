@@ -1,15 +1,4 @@
-import UserModel from '@app/models/user/user.model';
-import SortingState from '@app/models/common/sort-state.model';
-
-export const LOGO_TITLE = 'YouTube Client';
-
-export const DEFAULT_USER: UserModel = {
-  id: 'Default Id',
-  name: 'Your Name',
-  login: 'Your Login',
-  password: 'Your Password',
-  isAdmin: false,
-};
+import SortingState from '@youtube/models/sort-state.model';
 
 export const LabelsIcons : { [key: string]: string } = {
   viewCount: 'visibility',
