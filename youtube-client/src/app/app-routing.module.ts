@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () => import('@youtube/youtube.module')
       .then((module) => module.YoutubeModule),
   },
+  {
+    path: 'auth',
+    loadChildren: () => import('@auth/auth.module')
+      .then((module) => module.AuthModule),
+  },
 ];
 
 @NgModule({

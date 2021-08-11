@@ -1,0 +1,67 @@
+<form class="login-form" name="login-form">
+  <fieldset class="login-fieldset">
+    <legend class="login-form-legend">Login</legend>
+
+    <label class="form-input-label login-form-input-label">
+      <span class="label-description">Login</span>
+      <input
+        class="form-input login-form-input"
+        type="text"
+        name="login-form-input"
+        placeholder="Enter your login, please"
+        autocomplete="off"
+        required
+      >
+      <button
+        class="form-clear-button login-form-clear-button"
+        type="button"
+        aria-label="Clear login"
+        mat-button
+      >
+        <mat-icon>clear</mat-icon>
+      </button>
+    </label>
+
+    <label class="form-input-label login-form-input-label">
+      <span class="label-description">Password</span>
+      <input
+        class="form-input login-form-input"
+        type="password"
+        name="password-form-input"
+        placeholder="Enter password, please"
+        autocomplete="off"
+        required
+      >
+      <button
+        class="form-clear-button login-form-clear-button"
+        type="button"
+        aria-label="Clear password"
+        mat-button
+      >
+        <mat-icon>clear</mat-icon>
+      </button>
+    </label>
+  </fieldset>
+
+  <div class="form-container">
+    <button
+      class="login-form-button form-button main-button button shadow"
+      type="submit"
+      aria-label="Login button"
+      mat-button
+    >
+      Login
+    </button>
+  </div>
+</form>
+
+<ng-template #logOutButton>
+  <button
+    class="login-form-button form-button main-button button shadow"
+    type="button"
+    aria-label="Logout"
+    mat-button
+  >
+    Logout
+  </button>
+</ng-template>                                                  

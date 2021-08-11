@@ -12,6 +12,11 @@
   justify-content: space-evenly;
 }
 
+@mixin flex-around {
+  @include flex;
+  justify-content: space-around;
+}
+
 @mixin flex-aligned {
   @include flex;
   align-items: center;

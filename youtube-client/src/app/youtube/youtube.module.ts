@@ -33,7 +33,6 @@ import { InfoPageComponent } from './pages/info-page/info-page.component';
     YoutubeRoutingModule,
     SharedModule,
   ],
-  exports: [],
   providers: [YoutubeService],
 })
 export class YoutubeModule { }
