@@ -11,7 +11,7 @@ export default interface YoutubeResponceItem {
       default: YoutubeResponceThumbnails,
       medium?: YoutubeResponceThumbnails,
       high?: YoutubeResponceThumbnails,
-      standard?: YoutubeResponceThumbnails,
+      standard: YoutubeResponceThumbnails,
       maxres?: YoutubeResponceThumbnails,
     },
     localized?: {

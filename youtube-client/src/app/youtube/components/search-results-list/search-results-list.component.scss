@@ -1,7 +1,7 @@
 @import './src/scss/mixins.scss';
 
 .search-results-list {
-  @include flex-aligned;
+  @include flex-center-aligned;
   flex-wrap: wrap;
 
   margin-top: 12px;

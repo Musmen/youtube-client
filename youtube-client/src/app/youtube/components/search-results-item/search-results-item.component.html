@@ -10,7 +10,7 @@
     <img class="search-result-card__poster" src="{{ searchResultsItem.posterUrl }}">
   </a>
 
-  <app-search-results-item-statistics [statistics]="searchResultsItem.statistics"></app-search-results-item-statistics>
+  <app-item-statistics [statistics]="searchResultsItem.statistics"></app-item-statistics>
 
   <h2 class="search-result-card__title">{{ searchResultsItem.title }}</h2>
 
@@ -19,6 +19,7 @@
       class="search-result-card__button_more main-button button"
       aria-label="Additional information"
       mat-button
+      [routerLink]="['info', searchResultsItem.id]"
     >
       more...
     </button>

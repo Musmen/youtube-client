@@ -4,7 +4,7 @@ import { SharedModule } from '@shared/shared.module';
 import { SortingBlockComponent } from '@youtube/components/sorting-block/sorting-block.component';
 import { SearchResultsListComponent } from '@youtube/components/search-results-list/search-results-list.component';
 import { SearchResultsItemComponent } from '@youtube/components/search-results-item/search-results-item.component';
-import { SearchResultsItemStatisticsComponent } from '@youtube/components/search-results-item-statistics/search-results-item-statistics.component';
+import { ItemStatisticsComponent } from '@app/youtube/components/item-statistics/item-statistics.component';
 
 import { BorderColorizerDirective } from '@youtube/directives/border-colorizer/border-colorizer.directive';
 
@@ -15,17 +15,19 @@ import { YoutubeService } from '@youtube/services/youtube/youtube.service';
 
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { YoutubeRoutingModule } from './youtube-routing.module';
+import { InfoPageComponent } from './pages/info-page/info-page.component';
 
 @NgModule({
   declarations: [
     SortingBlockComponent,
     SearchResultsListComponent,
     SearchResultsItemComponent,
-    SearchResultsItemStatisticsComponent,
+    ItemStatisticsComponent,
     BorderColorizerDirective,
     FilterPipe,
     SortPipe,
     MainPageComponent,
+    InfoPageComponent,
   ],
   imports: [
     YoutubeRoutingModule,

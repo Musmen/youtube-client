@@ -56,8 +56,8 @@
   border-radius: 5px;
 
   &:hover {
-    box-shadow: 4px 4px 8px 0px #2F80EDCC,
-              -4px -4px 8px 0px #2F80EDCC;
+    box-shadow: 4px 4px 8px 0px $link-shadow-color,
+              -4px -4px 8px 0px $link-shadow-color;
   }
 }
 

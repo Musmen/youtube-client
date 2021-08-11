@@ -19,7 +19,7 @@ const parseYoutubeResponse: ParseYoutubeResponseFunctionType = (
         publishedAt: item.snippet.publishedAt,
         title: item.snippet.title,
         description: item.snippet.description,
-        posterUrl: item.snippet.thumbnails.default.url,
+        posterUrl: item.snippet.thumbnails.standard.url,
         statistics: item.statistics,
       }
     ),

@@ -1,0 +1,41 @@
+<section class="info-card centralizer" *ngIf="infoCard">
+  <div class="button-wrapper">
+    <button
+      class="info-card__back-button button shadow"
+      aria-label="Back"
+      mat-button
+      routerLink=""
+    >
+      <img class="info-card-button-image" src="../../../../../assets/images/back-button.png" alt="Back">
+    </button>
+  </div>
+
+  <div
+    class="card-wrapper"
+    [appBorderColorizer]="infoCard.publishedAt"
+  >
+    <a class="info-card__link" 
+      [href]="'https://www.youtube.com/watch?v=' + infoCard.id" 
+      target="_blank"
+    >
+      <div class="poster-wrapper" [ngStyle]="{'background-image': 'url(' + infoCard.posterUrl + ')'}">
+      </div>
+    </a>
+
+    <div class="description-wrapper">
+      <div class="info-card__header">
+        <h2 class="info-card__title">{{ infoCard.title }}</h2>
+        <span class="info-card__date">{{ infoCard.publishedAt | date:'fullDate' }}</span>
+      </div>
+
+      <div class="info-card__description">
+        <h4 class="description__title">Description:</h4>
+        <p class="description__info">{{ infoCard.description }}</p>
+      </div>
+
+      <div class="description__statistics">
+        <app-item-statistics [statistics]="infoCard.statistics"></app-item-statistics>
+      </div>
+    </div>
+  </div>
+</section>
