@@ -18,8 +18,8 @@ export class YoutubeService {
     return this._searchResults;
   }
 
-  getSearchResultsItemById(id: SearchResultsItem['id']): SearchResultsItem | undefined {
+  getSearchResultsItemById(idToFind: SearchResultsItem['id']): SearchResultsItem | undefined {
     return this._searchResults
-      .find((searchResultItem: SearchResultsItem) => searchResultItem.id === id);
+      .find(({ id }) => id === idToFind);
   }
 }

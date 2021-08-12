@@ -4,15 +4,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from '@core/pages/not-found/not-found.component';
 
 const routes: Routes = [
+  { path: 'auth', redirectTo: '' },
+  { path: 'login', redirectTo: '' },
   {
     path: '',
-    loadChildren: () => import('@youtube/youtube.module')
-      .then((m) => m.YoutubeModule),
-  },
-  {
-    path: 'auth',
     loadChildren: () => import('@auth/auth.module')
       .then((m) => m.AuthModule),
+  },
+  {
+    path: 'main',
+    loadChildren: () => import('@youtube/youtube.module')
+      .then((m) => m.YoutubeModule),
   },
   { path: '**', component: NotFoundComponent },
 ];
