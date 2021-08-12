@@ -6,6 +6,7 @@ import { SearchFormComponent } from '@core/components/search-form/search-form.co
 import { SettingsButtonComponent } from '@core/components/settings-button/settings-button.component';
 import { LoginComponent } from '@core/components/login/login.component';
 import { HeaderComponent } from '@core/pages/header/header.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HeaderComponent } from '@core/pages/header/header.component';
     SettingsButtonComponent,
     LoginComponent,
     HeaderComponent,
+    NotFoundComponent,
   ],
   imports: [SharedModule],
   exports: [HeaderComponent],

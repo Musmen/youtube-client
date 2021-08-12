@@ -10,10 +10,7 @@
     </button>
   </div>
 
-  <div
-    class="card-wrapper"
-    [appBorderColorizer]="infoCard.publishedAt"
-  >
+  <div class="card-wrapper">
     <a class="info-card__link" 
       [href]="'https://www.youtube.com/watch?v=' + infoCard.id" 
       target="_blank"
@@ -22,7 +19,7 @@
       </div>
     </a>
 
-    <div class="description-wrapper">
+    <div class="description-wrapper" [appBorderColorizer]="infoCard.publishedAt">
       <div class="info-card__header">
         <h2 class="info-card__title">{{ infoCard.title }}</h2>
         <span class="info-card__date">{{ infoCard.publishedAt | date:'fullDate' }}</span>
