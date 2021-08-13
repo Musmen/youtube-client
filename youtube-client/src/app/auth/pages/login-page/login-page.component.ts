@@ -12,10 +12,14 @@ export class LoginPageComponent {
   user: UserModel;
 
   constructor(private _loginService: LoginService) {
-    this.user = { ..._loginService.user };
+    this.user = { ..._loginService.getUser() };
   }
 
   login(user: UserModel): void {
     this._loginService.login(user);
+  }
+
+  logout(): void {
+    this._loginService.logout();
   }
 }

@@ -5,5 +5,3 @@ export const ERRORS_DESCRIPTIONS = {
 };
 
 export const MAX_USER_LOGIN_LENGTH: number = 10;
-
-export const DEFAULT_USER_LOGIN_TITLE: string = 'Your Login';

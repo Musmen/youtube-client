@@ -58,16 +58,14 @@
     >
       Login
     </button>
+    <button
+      class="login-form-button form-button main-button button shadow"
+      type="button"
+      aria-label="Logout"
+      mat-button
+      (click)="logout()"
+    >
+      Logout
+    </button>
   </div>
-</form>
-
-<ng-template #logOutButton>
-  <button
-    class="login-form-button form-button main-button button shadow"
-    type="button"
-    aria-label="Logout"
-    mat-button
-  >
-    Logout
-  </button>
-</ng-template>                                                  
+</form>                                             

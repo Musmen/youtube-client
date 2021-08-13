@@ -1,21 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { StateService } from '@core/services/state/state.service';
 import { LoginService } from '@app/auth/services/login/login.service';
 
 import UserModel from '@app/auth/models/user.model';
-import { DEFAULT_USER_LOGIN_TITLE } from '@common/constants';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   constructor(private _stateService: StateService, private _loginService: LoginService) { }
 
-  toggleSortingPanel(): void {
-    this._stateService.toggleSortingPanel();
+  get userLogin(): UserModel['login'] {
+    return this._loginService.getUserLogin();
   }
 
   get searchValue(): string {
@@ -26,7 +25,11 @@ export class HeaderComponent {
     this._stateService.setSearchValue(searchValue);
   }
 
-  get userLogin(): UserModel['login'] {
-    return this._loginService.user.login || DEFAULT_USER_LOGIN_TITLE;
+  toggleSortingPanel(): void {
+    this._stateService.toggleSortingPanel();
+  }
+
+  ngOnInit(): void {
+    if (!this._loginService.checkIsUserLogged()) this._loginService.goToLoginPage();
   }
 }

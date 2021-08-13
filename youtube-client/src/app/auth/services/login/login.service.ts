@@ -3,56 +3,74 @@ import { Router } from '@angular/router';
 
 import { generateAuthToken } from '@auth/common/helpers';
 import UserModel from '@auth/models/user.model';
-import { DEFAULT_USER, STORAGE_KEYS } from '@auth/common/constants';
+import { DEFAULT_USER, DEFAULT_USER_LOGIN_TITLE, STORAGE_KEYS } from '@auth/common/constants';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
-  user: UserModel;
-  isLogged?: boolean;
+  private _user!: UserModel;
+  private _isLogged: boolean;
 
   constructor(private _router: Router) {
-    this.user = DEFAULT_USER;
-    this.checkLoggedUser();
+    this._isLogged = false;
+    this._initUser();
   }
 
-  checkAuthToken(): void {
-    this.isLogged = Boolean(localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN));
+  private _initUser(): void {
+    this._loadUser();
+    if (this._user.token) this._isLogged = true;
   }
 
-  saveAuthToken(user: UserModel): void {
-    localStorage.setItem(STORAGE_KEYS.AUTH_TOKEN, generateAuthToken(user));
+  private _loadUser(): void {
+    this._user = JSON.parse(
+      localStorage.getItem(STORAGE_KEYS.USER) || JSON.stringify(DEFAULT_USER),
+    );
   }
 
-  checkLoggedUser(): void {
-    this.checkAuthToken();
-    if (!this.isLogged) return;
-
-    this.loadUser();
+  private _saveUser(user: UserModel): void {
+    localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(
+      {
+        login: user.login,
+        token: user.token,
+      },
+    ));
   }
 
-  saveUser(user: UserModel): void {
-    localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(user));
+  private _setAuthToken(user: UserModel): void {
+    this._user.token = generateAuthToken(user);
   }
 
-  loadUser(): void {
-    this.user = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER) || '');
+  getUser(): UserModel {
+    return this._user || DEFAULT_USER;
   }
 
-  goToMain(): void {
-    this._router.navigate(['main']);
+  getUserLogin(): UserModel['login'] {
+    return this._user.login || DEFAULT_USER_LOGIN_TITLE;
+  }
+
+  checkIsUserLogged(): boolean {
+    return this._isLogged;
   }
 
   login(user: UserModel): void {
-    this.user = { ...user };
-    this.isLogged = true;
-    this.saveAuthToken(user);
-    this.saveUser(user);
-    this.goToMain();
+    this._user = { ...user };
+    this._isLogged = true;
+    this._setAuthToken(this._user);
+    this._saveUser(this._user);
+    this.goToMainPage();
   }
 
   logout(): void {
-    localStorage.removeItem(STORAGE_KEYS.AUTH_TOKEN);
     localStorage.removeItem(STORAGE_KEYS.USER);
-    this.isLogged = false;
+    this._user = DEFAULT_USER;
+    this._isLogged = false;
+    this.goToLoginPage();
+  }
+
+  goToMainPage(): void {
+    this._router.navigate(['main']);
+  }
+
+  goToLoginPage(): void {
+    this._router.navigate(['login']);
   }
 }

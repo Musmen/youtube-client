@@ -6,6 +6,8 @@ export const DEFAULT_USER: UserModel = {
 };
 
 export const STORAGE_KEYS = {
-  AUTH_TOKEN: 'authToken-YouTubeClient',
-  USER: 'User-YouTubeClient',
+  CURRENT_AUTH_TOKEN: 'authToken-YouTubeClient',
+  USER: 'user-YouTubeClient',
 };
+
+export const DEFAULT_USER_LOGIN_TITLE: string = 'Your Login';
