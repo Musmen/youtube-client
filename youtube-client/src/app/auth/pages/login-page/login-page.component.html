@@ -10,7 +10,6 @@
         name="login-form-input"
         placeholder="Enter your login, please"
         autocomplete="off"
-        required
         [(ngModel)]="user.login"
       >
       <button
@@ -33,7 +32,6 @@
         name="password-form-input"
         placeholder="Enter password, please"
         autocomplete="off"
-        required
         [(ngModel)]="user.password"
       >
       <button
@@ -64,6 +62,7 @@
       aria-label="Logout"
       mat-button
       (click)="logout()"
+      [disabled]="!checkIsUserLogged()"
     >
       Logout
     </button>

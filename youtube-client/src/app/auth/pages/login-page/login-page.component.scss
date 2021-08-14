@@ -93,4 +93,10 @@
 
 .login-form-button {
   width: 124px;
+
+  &:disabled {
+    background-color: $main-bg-color-dark;
+    border-color: $main-bg-color-dark;
+    color: $main-font-color;
+  }
 }

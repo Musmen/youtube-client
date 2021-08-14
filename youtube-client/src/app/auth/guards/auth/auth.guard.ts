@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanDeactivate, CanLoad } from '@angular/router';
 
-import { LoginService } from '../services/login/login.service';
+import { LoginService } from '@auth/services/login/login.service';
 
 type BooleanExtended = Promise<boolean> | boolean;
 

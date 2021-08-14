@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { RefService } from '@app/core/services/ref/ref.service';
+
 import { generateAuthToken } from '@auth/common/helpers';
 import UserModel from '@auth/models/user.model';
 import { DEFAULT_USER, DEFAULT_USER_LOGIN_TITLE, STORAGE_KEYS } from '@auth/common/constants';
@@ -9,9 +11,11 @@ import { DEFAULT_USER, DEFAULT_USER_LOGIN_TITLE, STORAGE_KEYS } from '@auth/comm
 export class LoginService {
   private _user!: UserModel;
   private _isLogged: boolean;
+  private _localStorage: Storage;
 
-  constructor(private _router: Router) {
+  constructor(private _router: Router, private _refService: RefService) {
     this._isLogged = false;
+    this._localStorage = this._refService.localStorage;
     this._initUser();
   }
 
@@ -22,12 +26,12 @@ export class LoginService {
 
   private _loadUser(): void {
     this._user = JSON.parse(
-      localStorage.getItem(STORAGE_KEYS.USER) || JSON.stringify(DEFAULT_USER),
+      this._localStorage.getItem(STORAGE_KEYS.USER) || JSON.stringify(DEFAULT_USER),
     );
   }
 
-  private _saveUser(user: UserModel): void {
-    localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(
+  private _saveUser(user: UserModel = this._user): void {
+    this._localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(
       {
         login: user.login,
         token: user.token,
@@ -35,7 +39,7 @@ export class LoginService {
     ));
   }
 
-  private _setAuthToken(user: UserModel): void {
+  private _setAuthToken(user: UserModel = this._user): void {
     this._user.token = generateAuthToken(user);
   }
 
@@ -51,7 +55,7 @@ export class LoginService {
     return this._isLogged;
   }
 
-  login(user: UserModel): void {
+  login(user: UserModel = this._user): void {
     this._user = { ...user };
     this._isLogged = true;
     this._setAuthToken(this._user);
@@ -60,7 +64,7 @@ export class LoginService {
   }
 
   logout(): void {
-    localStorage.removeItem(STORAGE_KEYS.USER);
+    this._localStorage.removeItem(STORAGE_KEYS.USER);
     this._user = DEFAULT_USER;
     this._isLogged = false;
     this.goToLoginPage();

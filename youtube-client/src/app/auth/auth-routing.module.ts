@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginPageComponent } from '@auth/pages/login-page/login-page.component';
-import { AuthGuard } from '@auth/guards/auth.guard';
+import { AuthGuard } from '@auth/guards/auth/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent, canDeactivate: [AuthGuard] },

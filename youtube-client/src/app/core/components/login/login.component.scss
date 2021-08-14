@@ -5,7 +5,7 @@
   position: absolute;
   right: 0;
 
-  @include flex;
+  @include flex-aligned;
 }
 
 .user-login {
@@ -18,7 +18,13 @@
 .user-avatar {
   width: 32px;
   height: 32px;
-  margin-right: 20px;
+  margin-right: 10px;
 
   border-radius: 8px;
 }
+
+.button-logout,
+.button-login {
+  min-width: 85px;
+  margin-right: 20px;
+}  

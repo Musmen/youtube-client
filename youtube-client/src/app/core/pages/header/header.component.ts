@@ -17,6 +17,10 @@ export class HeaderComponent implements OnInit {
     return this._loginService.getUserLogin();
   }
 
+  get isUserLogged(): boolean {
+    return this._loginService.checkIsUserLogged();
+  }
+
   get searchValue(): string {
     return this._stateService.getSearchValue();
   }
@@ -27,6 +31,14 @@ export class HeaderComponent implements OnInit {
 
   toggleSortingPanel(): void {
     this._stateService.toggleSortingPanel();
+  }
+
+  login(): void {
+    this._loginService.login();
+  }
+
+  logout(): void {
+    this._loginService.logout();
   }
 
   ngOnInit(): void {

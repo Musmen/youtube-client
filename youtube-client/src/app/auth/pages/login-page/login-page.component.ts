@@ -22,4 +22,8 @@ export class LoginPageComponent {
   logout(): void {
     this._loginService.logout();
   }
+
+  checkIsUserLogged(): boolean {
+    return this._loginService.checkIsUserLogged();
+  }
 }
