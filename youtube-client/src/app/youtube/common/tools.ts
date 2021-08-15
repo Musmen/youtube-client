@@ -39,9 +39,9 @@ export const getViewCountValue: GetValueType = (
   item: SearchResultsItem,
 ) => Number(item.statistics.viewCount);
 
-type GetNewBorderColorType = (timeAfterPublication: number) => string;
+type GetNewColorType = (timeAfterPublication: number) => string;
 
-export const getNewBorderColor: GetNewBorderColorType = (
+export const getNewColor: GetNewColorType = (
   timeAfterPublication: number,
 ) => {
   if (timeAfterPublication > TIME_IN_MILLISECONDS.SIX_MONTHS) return Colors.red;

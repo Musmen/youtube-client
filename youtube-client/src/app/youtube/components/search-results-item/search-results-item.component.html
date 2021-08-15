@@ -1,7 +1,7 @@
 <div 
   class="search-result-card shadow" 
   *ngIf="searchResultsItem" 
-  [appBorderColorizer]="searchResultsItem.publishedAt"
+  [appColorizer]="searchResultsItem.publishedAt"
 >
   <a class="search-result-card__link" 
     [href]="'https://www.youtube.com/watch?v=' + searchResultsItem.id" 

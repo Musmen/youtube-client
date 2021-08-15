@@ -6,7 +6,7 @@ import { SearchResultsListComponent } from '@youtube/components/search-results-l
 import { SearchResultsItemComponent } from '@youtube/components/search-results-item/search-results-item.component';
 import { ItemStatisticsComponent } from '@app/youtube/components/item-statistics/item-statistics.component';
 
-import { BorderColorizerDirective } from '@youtube/directives/border-colorizer/border-colorizer.directive';
+import { ColorizerDirective } from '@youtube/directives/colorizer/colorizer.directive';
 
 import { FilterPipe } from '@youtube/pipes/filter/filter.pipe';
 import { SortPipe } from '@youtube/pipes/sort/sort.pipe';
@@ -23,7 +23,7 @@ import { InfoPageComponent } from './pages/info-page/info-page.component';
     SearchResultsListComponent,
     SearchResultsItemComponent,
     ItemStatisticsComponent,
-    BorderColorizerDirective,
+    ColorizerDirective,
     FilterPipe,
     SortPipe,
     MainPageComponent,

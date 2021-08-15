@@ -5,12 +5,22 @@
       aria-label="Back"
       mat-button
       routerLink="/main"
+      [ngStyle]="{'filter': 'drop-shadow(-2px 2px 4px)', 'box-shadow': '-2px 2px 4px 0px'}"
+      [appColorizer]="infoCard.publishedAt"
+      [propertyToChangeColors]="['backgroundColor','color']"
+      [additionAlphaChannals]="['', '80']"
     >
       <img class="info-card-button-image" src="../../../../../assets/images/back-button.png" alt="Back">
     </button>
   </div>
 
-  <div class="card-wrapper">
+  <div 
+    class="card-wrapper"
+    [ngStyle]="{'filter': 'drop-shadow(5px 10px 10px)', 'box-shadow': '5px 10px 10px 0px'}"
+    [appColorizer]="infoCard.publishedAt" 
+    [propertyToChangeColors]="['color']"
+    [additionAlphaChannals]="['40']"
+  >
     <a class="info-card__link" 
       [href]="'https://www.youtube.com/watch?v=' + infoCard.id" 
       target="_blank"
@@ -19,7 +29,7 @@
       </div>
     </a>
 
-    <div class="description-wrapper" [appBorderColorizer]="infoCard.publishedAt">
+    <div class="description-wrapper" [appColorizer]="infoCard.publishedAt">
       <div class="info-card__header">
         <h2 class="info-card__title">{{ infoCard.title }}</h2>
         <span class="info-card__date">{{ infoCard.publishedAt | date:'fullDate' }}</span>

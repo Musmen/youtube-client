@@ -606,7 +606,7 @@ export default {
       etag: '\'Fznwjl6JEQdo1MGvHOGaz_YanRU/pvVvPt5cchXjCoSYxodr18lOaEg\'',
       id: 'NaZwVUHnmfE',
       snippet: {
-        publishedAt: '2019-12-23T16:06:13.000Z',
+        publishedAt: '2021-08-12T16:06:13.000Z',
         channelId: 'UCg8ss4xW9jASrqWGP30jXiw',
         title: 'Angular 8 + RxJS. Приложение Органайзер С Нуля (Для Опытных!)',
         description: 'Курс по Angular 8+: \nhttps://clc.to/angular \n\nДобавляйте меня в ВК: https://vk.com/vladilen.minin\nTelegram: https://teleg.one/js_by_vladilen\nInstagram: https://www.instagram.com/vladilen.minin\nГруппа ВК: https://vk.com/js_by_vladilen\n\nПоддержать выпуск новых видео:\nЯД: https://money.yandex.ru/to/410013757655670\nPayPal: https://www.paypal.me/vladilenm \n\nВ видео я покажу разработку приложения органайзера с нуля.\nВ видео я не буду пояснять базовые моменты, так как это практика для опытных разработчиков\n\nВ результате вы получите приложение, в котором будет использоваться много RxJS, Firebase, MomentJS и Angular 8\nНе будет никаких CSS фреймворков - все стили будут написаны с нуля с использованием CSS переменных\n\nИсходный код:\nhttps://github.com/vladilenm/angular-organizer\n\nAngular 8 + RxJS. Приложение Целиком (Для Опытных!)\nhttps://youtu.be/NaZwVUHnmfE',
@@ -685,7 +685,7 @@ export default {
       etag: '\'Fznwjl6JEQdo1MGvHOGaz_YanRU/KuFm1jGNMzgjE2VlAEsPgRVra4o\'',
       id: 'G0bBLvWXBvc',
       snippet: {
-        publishedAt: '2020-09-16T16:53:41.000Z',
+        publishedAt: '2021-08-14T16:53:41.000Z',
         channelId: 'UCsBjURrPoezykLs9EqgamOA',
         title: 'Angular for Beginners - Let\'s build a Tic-Tac-Toe PWA',
         description: 'Learn the basics of Angular 8 🚀 by building a tic-tac-toe game 🕹️ from scratch...Then deploy it as an installable progressive web app (PWA). Go beyond the basics 👉https://fireship.io/courses/angular/\n\nFull Source Code: https://github.com/fireship-io/angular-tic-tac-toe\nAngular Docs: https://angular.io/\n\n#angular #pwa #tutorial\n\nTake Angular quizzes 🤓\n\niOS https://itunes.apple.com/us/app/fireship/id1462592372?mt=8\nAndroid https://play.google.com/store/apps/details?id=io.fireship.quizapp\n\nUpgrade to Fireship PRO at https://fireship.io/pro\nUse code lORhwXd2 for 25% off your first payment.',
