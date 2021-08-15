@@ -114,3 +114,18 @@ Pages directory contains components that represent individual pages (**Login pag
 - **Detailed information page**
     - Should contain information about the selected video.
     - To determine which video is selected, pass its id as a route param
+
+## Branch "task-4" ([link to PR#4](https://github.com/Musmen/youtube-client/pull/4)): 
+### Task "Angular. RxJS & Observables. HTTP task" ([link](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/rxjs-observables-http.md))
+
+#### Scope:
+- **Global search functionality**
+    - remove the *Search* button. Now we're going to invoke the search logic once the user types something
+    - in order not to spam our API, create a new Observable in your component and emit changes until the user enters at least 3 characters
+    - add debounce functionality to prevent API calls from being performed if the user is still typing.
+- **Login block**
+    - create a new Observable in the **Login service** that will emit a boolean which indicates whether the user is logged in or not.
+    - show the "Login" and "Logout" button if the user is logged out / logged in
+- **HTTP requests and YouTube API**
+    - remove the mocked response from your project and use a service that is created in the **YouTube module**.
+    - use the HTTP interceptor to shorten request URLs in your services and pass your access token.
