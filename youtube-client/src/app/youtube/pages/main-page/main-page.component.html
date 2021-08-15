@@ -1,0 +1,11 @@
+<app-sorting-block 
+  [isSortingPanelOpen]="isSortingPanelOpen"
+  [sortState]="sortState"
+  (changeSortStateEvent)="setSortState($event)"
+  (changeFilteringInputEvent)="setFilteringValue($event)"
+></app-sorting-block>
+<app-search-results-list 
+  [searchResultsList]="searchResults"
+  [sortState]="sortState"
+  [filteringValue]="filteringValue"
+></app-search-results-list>

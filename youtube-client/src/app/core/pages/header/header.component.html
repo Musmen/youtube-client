@@ -1,0 +1,12 @@
+<app-logo></app-logo>
+<app-search-form 
+  [searchValue]="searchValue"
+  (setSearchValueEvent)="setSearchValue($event)"
+></app-search-form>
+<app-settings-button (toggleSortingPanelEvent)="toggleSortingPanel()"></app-settings-button>
+<app-login 
+  [userLogin]="userLogin" 
+  [isUserLogged]="isUserLogged"
+  (loginEvent)="login()"
+  (logoutEvent)="logout()"
+></app-login>

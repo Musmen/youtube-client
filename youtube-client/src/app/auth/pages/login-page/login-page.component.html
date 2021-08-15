@@ -1,0 +1,70 @@
+<form class="login-form" name="login-form" (submit)="login(user)">
+  <fieldset class="login-fieldset">
+    <legend class="login-form-legend">Login</legend>
+
+    <label class="form-input-label login-form-input-label">
+      <span class="label-description">Login</span>
+      <input
+        class="form-input login-form-input"
+        type="text"
+        name="login-form-input"
+        placeholder="Enter your login, please"
+        autocomplete="off"
+        [(ngModel)]="user.login"
+      >
+      <button
+        class="form-clear-button login-form-clear-button"
+        type="button"
+        aria-label="Clear login"
+        mat-button
+        *ngIf="user.login"
+        (click)="user.login=''"
+      >
+        <mat-icon>clear</mat-icon>
+      </button>
+    </label>
+
+    <label class="form-input-label login-form-input-label">
+      <span class="label-description">Password</span>
+      <input
+        class="form-input login-form-input"
+        type="password"
+        name="password-form-input"
+        placeholder="Enter password, please"
+        autocomplete="off"
+        [(ngModel)]="user.password"
+      >
+      <button
+        class="form-clear-button login-form-clear-button"
+        type="button"
+        aria-label="Clear password"
+        mat-button
+        *ngIf="user.password"
+        (click)="user.password=''"
+      >
+        <mat-icon>clear</mat-icon>
+      </button>
+    </label>
+  </fieldset>
+
+  <div class="form-container">
+    <button
+      class="login-form-button form-button main-button button shadow"
+      type="submit"
+      aria-label="Login button"
+      mat-button
+    >
+      Login
+    </button>
+    <button
+      class="login-form-button form-button main-button button shadow"
+      type="button"
+      aria-label="Logout"
+      mat-button
+      (click)="logout()"
+      [disabled]="!checkIsUserLogged()"
+    >
+      Logout
+    </button>
+  </div>
+</form>                                             

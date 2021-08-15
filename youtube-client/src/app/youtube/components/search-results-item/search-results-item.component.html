@@ -1,0 +1,27 @@
+<div 
+  class="search-result-card shadow" 
+  *ngIf="searchResultsItem" 
+  [appColorizer]="searchResultsItem.publishedAt"
+>
+  <a class="search-result-card__link" 
+    [href]="'https://www.youtube.com/watch?v=' + searchResultsItem.id" 
+    target="_blank"
+  >
+    <img class="search-result-card__poster" src="{{ searchResultsItem.posterUrl }}">
+  </a>
+
+  <app-item-statistics [statistics]="searchResultsItem.statistics"></app-item-statistics>
+
+  <h2 class="search-result-card__title">{{ searchResultsItem.title }}</h2>
+
+  <div class="search-result-card-buttons">
+    <button
+      class="search-result-card__button_more main-button button"
+      aria-label="Additional information"
+      mat-button
+      [routerLink]="['info', searchResultsItem.id]"
+    >
+      more...
+    </button>
+  </div>
+</div> 

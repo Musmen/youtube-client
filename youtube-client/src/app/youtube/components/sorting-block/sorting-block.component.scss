@@ -1,0 +1,106 @@
+@import './src/scss/variables.scss';
+@import './src/scss/mixins.scss';
+
+.mat-expansion-panel {
+  background-color: $main-bg-color-light;
+  border-radius: 0;
+
+  box-shadow: none;
+  user-select: none;
+}
+
+.sorting-block {
+  @include flex-center-aligned;
+
+  min-height: 50px;
+
+  font-size: 12px;
+  line-height: 14px;
+  color: $main-dark-font-color;
+}
+
+.sorting-title {
+  margin-right: 10px;
+
+  color: $secodary-font-color;
+}
+
+.sorting-criteria-list {
+  @include flex-center-aligned;
+
+  margin: 0;
+}
+
+.sorting-criteria-item {
+  margin-right: 20px;
+}
+
+.sorting-criteria-link {
+  display: inline-flex;
+  align-items: center;
+
+  color: $secodary-light-font-color;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  &.active {
+    color: $main-font-color;
+  }
+}
+
+.sorting-direction-icon {
+  color: transparent;
+}
+
+.active .sorting-direction-icon {
+  color: inherit;
+  transition: transform 0.6s;
+}
+
+.increasing .sorting-direction-icon {
+    transform: rotate(-180deg);
+  }
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.filtering-form-input-label {
+  position: relative;
+
+  @include flex-center-aligned;;
+}
+
+.filtering-form-input-label-title {
+  color: $secodary-light-font-color;
+
+  &.active {
+    color: $main-font-color;
+  }
+}
+
+.filtering-form-input {
+  margin-left: 10px;
+  padding-right: 20px;
+
+  border: none;
+  outline: none;
+}
+
+.clear-button {
+  position: absolute;
+  right: 5px;
+
+  padding: 0;
+  width: 14px;
+  min-width: 14px;
+}
+
+.clear-button .mat-icon {
+  width: 14px;
+  height: 14px;
+
+  font-size: 14px;
+  line-height: 14px;
+} 
