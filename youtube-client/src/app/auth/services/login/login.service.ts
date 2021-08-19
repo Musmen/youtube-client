@@ -10,11 +10,10 @@ import { DEFAULT_USER, DEFAULT_USER_LOGIN_TITLE, STORAGE_KEYS } from '@auth/comm
 @Injectable({ providedIn: 'root' })
 export class LoginService {
   private _user!: UserModel;
-  private _isLogged: boolean;
+  private _isLogged: boolean = false;
   private _localStorage: Storage;
 
   constructor(private _router: Router, private _refService: RefService) {
-    this._isLogged = false;
     this._localStorage = this._refService.localStorage;
     this._initUser();
   }

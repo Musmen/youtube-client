@@ -9,7 +9,7 @@ export const LabelsIcons : { [key: string]: string } = {
 
 export const DEFAULT_SORT_STATE: SortingState = {
   sortingBy: '',
-  isIncreasing: false,
+  ascending: 1,
 };
 
 export enum SortingValues {

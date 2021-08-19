@@ -13,7 +13,7 @@ import {
 })
 
 export class SearchFormComponent {
-  @Output() private setSearchValueEvent = new EventEmitter<string>();
+  @Output() setSearchValueEvent = new EventEmitter<string>();
   searchValue: string = '';
 
   setSearchValue(searchValue: string = this.searchValue): void {

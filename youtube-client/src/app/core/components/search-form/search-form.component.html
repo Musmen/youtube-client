@@ -6,9 +6,9 @@
       type="search" 
       name="searchValue"
       matInput 
+      autocomplete="off"
       [(ngModel)]="searchValue" 
       (ngModelChange)="setSearchValue(searchValue)"
-      autocomplete="off"
     >
     <button 
       class="search-clear-button"

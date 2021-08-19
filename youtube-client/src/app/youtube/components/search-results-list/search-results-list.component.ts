@@ -11,13 +11,9 @@ import SortState from '@youtube/models/sort-state.model';
 })
 
 export class SearchResultsListComponent {
-  @Input() searchResultsList: SearchResultsItem[] | null;
+  @Input() searchResultsList: SearchResultsItem[] | null = null;
   @Input() sortState?: SortState;
   @Input() filteringValue?: string;
-
-  constructor() {
-    this.searchResultsList = null;
-  }
 
   searchResultsItemById(index: number, item: SearchResultsItem): SearchResultsItem['id'] {
     return item.id;

@@ -17,21 +17,16 @@ import SortState from '@youtube/models/sort-state.model';
 })
 export class SortingBlockComponent {
   @Input() isSortingPanelOpen: boolean | null = false;
-  @Input() sortState: SortState;
+  @Input() sortState: SortState = DEFAULT_SORT_STATE;
 
   @Output() changeSortStateEvent = new EventEmitter<SortState>();
   @Output() changeFilteringInputEvent = new EventEmitter<string>();
 
-  filteringInput?: string;
-
-  constructor() {
-    this.filteringInput = '';
-    this.sortState = DEFAULT_SORT_STATE;
-  }
+  filteringInput?: string = '';
 
   changeSortState(newSortingBy: string): void {
     if (this.sortState.sortingBy === newSortingBy) {
-      this.sortState.isIncreasing = !this.sortState.isIncreasing;
+      this.sortState.ascending *= -1;
     } else {
       this.sortState.sortingBy = newSortingBy;
     }

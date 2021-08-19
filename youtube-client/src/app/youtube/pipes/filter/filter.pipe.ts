@@ -5,14 +5,14 @@ import { getTrimmedStringInLowerCase } from '@youtube/common/helper';
 
 @Pipe({ name: 'filter' })
 export class FilterPipe implements PipeTransform {
-  transform(searchResultsList: SearchResultsItem[], filteringValue?: string): SearchResultsItem[] {
+  transform(list: SearchResultsItem[], filteringValue?: string): SearchResultsItem[] {
     return filteringValue
-      ? searchResultsList
+      ? list
         .filter(
-          (searchResultsItem: SearchResultsItem) => getTrimmedStringInLowerCase(
-            searchResultsItem.title,
+          (item: SearchResultsItem) => getTrimmedStringInLowerCase(
+            item.title,
           ).includes(getTrimmedStringInLowerCase(filteringValue)),
         )
-      : searchResultsList;
+      : list;
   }
 }

@@ -26,8 +26,8 @@ const parseYoutubeResponse: ParseYoutubeResponseFunctionType = (
   );
 
 export const getParsedYoutubeResponse: ParseYoutubeResponseFunctionType = (
-  mockYoutubeResponse: YoutubeResponse,
-) => parseYoutubeResponse(mockYoutubeResponse);
+  youtubeResponse: YoutubeResponse,
+) => parseYoutubeResponse(youtubeResponse);
 
 type GetYouTubeResponseItemsIdsList = (response: YoutubeResponse)
 => string;
@@ -40,13 +40,13 @@ export const getYouTubeResponseItemsIdsList: GetYouTubeResponseItemsIdsList = (
   )
   .join(',');
 
-type GetValueType = (item: SearchResultsItem) => number;
+type GetValueType<T> = (item: T) => number;
 
-export const getDateValue: GetValueType = (
+export const getDateValue: GetValueType<SearchResultsItem> = (
   item: SearchResultsItem,
 ) => Number(getTimeInMilliseconds(item.publishedAt));
 
-export const getViewCountValue: GetValueType = (
+export const getViewCountValue: GetValueType<SearchResultsItem> = (
   item: SearchResultsItem,
 ) => Number(item.statistics.viewCount);
 

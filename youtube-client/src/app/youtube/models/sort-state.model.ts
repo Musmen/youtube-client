@@ -1,4 +1,4 @@
 export default interface SortState {
-  isIncreasing: boolean,
+  ascending: number,
   sortingBy: string,
 }

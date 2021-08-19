@@ -23,11 +23,7 @@ export class LoginComponent {
   @Output() goToLoginPageEvent = new EventEmitter<void>();
   @Output() logoutEvent = new EventEmitter<void>();
 
-  MAX_USER_LOGIN_LENGTH: number;
-
-  constructor() {
-    this.MAX_USER_LOGIN_LENGTH = MAX_USER_LOGIN_LENGTH;
-  }
+  MAX_USER_LOGIN_LENGTH: number = MAX_USER_LOGIN_LENGTH;
 
   goToLogin(): void {
     this.goToLoginPageEvent.emit();

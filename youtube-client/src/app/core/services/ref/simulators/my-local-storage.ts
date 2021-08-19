@@ -1,9 +1,5 @@
 export class MyLocalStorage implements Storage {
-  private _storage: Map<string, string | null>;
-
-  constructor() {
-    this._storage = new Map();
-  }
+  private _storage: Map<string, string | null> = new Map();
 
   get length(): number {
     return this._storage.size;

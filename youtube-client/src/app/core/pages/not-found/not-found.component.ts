@@ -8,9 +8,5 @@ import { ERRORS_DESCRIPTIONS } from '@common/constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotFoundComponent {
-  errorDescription: string;
-
-  constructor() {
-    this.errorDescription = ERRORS_DESCRIPTIONS.PAGE_NOT_FOUND;
-  }
+  errorDescription: string = ERRORS_DESCRIPTIONS.PAGE_NOT_FOUND;
 }

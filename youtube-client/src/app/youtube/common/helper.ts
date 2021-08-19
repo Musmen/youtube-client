@@ -1,19 +1,14 @@
 type CompareFunctionType = (
   firstCompareItem: number,
   secondCompareItem: number,
-  isIncreasing: boolean,
+  isIncreasing: number,
 ) => number;
 
 export const compare: CompareFunctionType = (
   firstCompareItem: number,
   secondCompareItem: number,
-  isIncreasing: boolean,
-) => {
-  if (isIncreasing) {
-    return firstCompareItem - secondCompareItem;
-  }
-  return secondCompareItem - firstCompareItem;
-};
+  ascending: number,
+) => (firstCompareItem - secondCompareItem) * ascending;
 
 type GetTimeInMilliseconds = (date: string) => number;
 

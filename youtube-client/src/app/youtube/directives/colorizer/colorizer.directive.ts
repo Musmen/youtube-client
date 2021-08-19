@@ -12,13 +12,10 @@ import { getTimeInMilliseconds } from '@youtube/common/helper';
 @Directive({ selector: '[appColorizer]' })
 export class ColorizerDirective implements OnInit {
   @Input('appColorizer') postDate?: string;
-  @Input() propertyToChangeColors: string[];
-  @Input() additionAlphaChannals: string[];
+  @Input() propertyToChangeColors: string[] = ['border-color'];
+  @Input() additionAlphaChannals: string[] = [''];
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
-    this.propertyToChangeColors = ['border-color'];
-    this.additionAlphaChannals = [''];
-  }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit() {
     if (!this.postDate) return;
@@ -34,7 +31,7 @@ export class ColorizerDirective implements OnInit {
         .setStyle(
           this.elementRef.nativeElement,
           propertyToChangeColor,
-          newColor + this.additionAlphaChannals[propertyIndex],
+          `${newColor}${this.additionAlphaChannals[propertyIndex]}`,
         ));
   }
 }

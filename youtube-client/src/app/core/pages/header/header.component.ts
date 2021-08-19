@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { StateService } from '@core/services/state/state.service';
 import { LoginService } from '@app/auth/services/login/login.service';
@@ -9,6 +9,7 @@ import UserModel from '@app/auth/models/user.model';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
   constructor(

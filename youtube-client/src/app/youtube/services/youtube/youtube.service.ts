@@ -26,7 +26,7 @@ export class YoutubeService {
     return this._http.get<YoutubeResponse>(URL);
   }
 
-  private _fetchSearchResultsWithStats$(searchResultsIds: string): Observable<YoutubeResponse> {
+  fetchSearchResultsWithStats$(searchResultsIds: string): Observable<YoutubeResponse> {
     const URL: string = `${YOUTUBE_API_URL.BASE}${YOUTUBE_API_URL.VIDEOS}${searchResultsIds}`;
     return this._http.get<YoutubeResponse>(URL);
   }
@@ -37,7 +37,7 @@ export class YoutubeService {
         switchMap(
           (response: YoutubeResponse) => {
             const searchResultsIds: string = getYouTubeResponseItemsIdsList(response);
-            return this._fetchSearchResultsWithStats$(searchResultsIds);
+            return this.fetchSearchResultsWithStats$(searchResultsIds);
           },
         ),
         map(

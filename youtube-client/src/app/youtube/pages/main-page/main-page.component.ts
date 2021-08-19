@@ -25,13 +25,11 @@ import { DEFAULT_SORT_STATE } from '@youtube/common/constants';
 
 export class MainPageComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription = new Subscription();
-  searchResults$: BehaviorSubject<SearchResultsItem[]>;
+  searchResults$: BehaviorSubject<SearchResultsItem[]> = new BehaviorSubject<SearchResultsItem[]>(
+    this._youtubeService.getSearchResults(),
+  );
 
-  constructor(private _stateService: StateService, private _youtubeService: YoutubeService) {
-    this.searchResults$ = new BehaviorSubject<SearchResultsItem[]>(
-      this._youtubeService.getSearchResults(),
-    );
-  }
+  constructor(private _stateService: StateService, private _youtubeService: YoutubeService) { }
 
   ngOnInit(): void {
     const subscription: Subscription = this._getSearchValue$()

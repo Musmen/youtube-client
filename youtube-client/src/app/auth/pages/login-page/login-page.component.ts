@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { LoginService } from '@auth/services/login/login.service';
 import UserModel from '@auth/models/user.model';
@@ -7,6 +7,7 @@ import UserModel from '@auth/models/user.model';
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginPageComponent {
   user: UserModel;

@@ -13,9 +13,5 @@ export class ItemStatisticsComponent {
   @Input() statistics?: { [key: string]: string };
 
   labelsIcons = LabelsIcons;
-  statisticLabels: string[];
-
-  constructor() {
-    this.statisticLabels = Object.keys(LabelsIcons);
-  }
+  statisticLabels: string[] = Object.keys(LabelsIcons);
 }
