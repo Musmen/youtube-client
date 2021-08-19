@@ -1,10 +1,10 @@
-<section class="info-card" *ngIf="infoCard">
+<section class="info-card" *ngIf="(infoCard$ | async) as infoCard">
   <div class="button-wrapper">
     <button
       class="info-card__back-button button shadow"
       aria-label="Back"
       mat-button
-      (click)="goBack()"
+      routerLink="/main"
       [ngStyle]="{'filter': 'drop-shadow(-2px 2px 4px)', 'box-shadow': '-2px 2px 4px 0px'}"
       [appColorizer]="infoCard.publishedAt"
       [propertyToChangeColors]="['backgroundColor','color']"
@@ -43,6 +43,6 @@
       <div class="description__statistics">
         <app-item-statistics [statistics]="infoCard.statistics"></app-item-statistics>
       </div>
-    </div>
+    </div> 
   </div>
 </section>
