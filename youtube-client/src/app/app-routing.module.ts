@@ -5,12 +5,11 @@ import { NotFoundComponent } from '@core/pages/not-found/not-found.component';
 import { AuthGuard } from '@auth/guards/auth/auth.guard';
 
 const routes: Routes = [
-  { path: 'auth', redirectTo: '' },
-  { path: 'login', redirectTo: '' },
+  { path: '', pathMatch: 'full', redirectTo: 'main' },
+  { path: 'auth', redirectTo: 'login' },
   { path: 'home', redirectTo: 'main' },
   {
-    path: '',
-    pathMatch: 'full',
+    path: 'login',
     loadChildren: () => import('@auth/auth.module')
       .then((m) => m.AuthModule),
   },

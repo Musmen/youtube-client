@@ -16,7 +16,7 @@ import SortState from '@youtube/models/sort-state.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SortingBlockComponent {
-  @Input() isSortingPanelOpen?: boolean;
+  @Input() isSortingPanelOpen: boolean | null = false;
   @Input() sortState: SortState;
 
   @Output() changeSortStateEvent = new EventEmitter<SortState>();

@@ -1,7 +1,6 @@
 import {
   Component,
   EventEmitter,
-  Input,
   Output,
   ChangeDetectionStrategy,
 } from '@angular/core';
@@ -14,10 +13,10 @@ import {
 })
 
 export class SearchFormComponent {
-  @Input() searchValue?: string;
   @Output() private setSearchValueEvent = new EventEmitter<string>();
+  searchValue: string = '';
 
-  setSearchValue(): void {
-    this.setSearchValueEvent.emit(this.searchValue);
+  setSearchValue(searchValue: string = this.searchValue): void {
+    this.setSearchValueEvent.emit(searchValue);
   }
 }

@@ -4,7 +4,7 @@
       class="info-card__back-button button shadow"
       aria-label="Back"
       mat-button
-      routerLink="/main"
+      (click)="goBack()"
       [ngStyle]="{'filter': 'drop-shadow(-2px 2px 4px)', 'box-shadow': '-2px 2px 4px 0px'}"
       [appColorizer]="infoCard.publishedAt"
       [propertyToChangeColors]="['backgroundColor','color']"

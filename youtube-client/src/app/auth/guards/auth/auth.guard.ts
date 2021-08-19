@@ -14,7 +14,11 @@ export class AuthGuard implements CanActivate, CanDeactivate<unknown>, CanLoad {
   }
 
   canActivate(): BooleanExtended {
-    return this._checkAccess();
+    if (!this._checkAccess()) {
+      this._loginService.goToLoginPage();
+      return false;
+    }
+    return true;
   }
 
   canDeactivate(): BooleanExtended {
@@ -22,6 +26,6 @@ export class AuthGuard implements CanActivate, CanDeactivate<unknown>, CanLoad {
   }
 
   canLoad(): BooleanExtended {
-    return this._checkAccess();
+    return this.canActivate();
   }
 }

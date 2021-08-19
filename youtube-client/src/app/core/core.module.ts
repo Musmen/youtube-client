@@ -18,6 +18,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     NotFoundComponent,
   ],
   imports: [SharedModule],
-  exports: [HeaderComponent],
+  exports: [HeaderComponent, NotFoundComponent],
 })
 export class CoreModule { }

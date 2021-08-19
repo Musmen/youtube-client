@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
+
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 import { StateService } from '@core/services/state/state.service';
 import { YoutubeService } from '@youtube/services/youtube/youtube.service';
@@ -12,21 +20,48 @@ import { DEFAULT_SORT_STATE } from '@youtube/common/constants';
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class MainPageComponent {
-  constructor(
-    private _stateService: StateService,
-    private _youtubeService: YoutubeService,
-  ) { }
+export class MainPageComponent implements OnInit, OnDestroy {
+  private _subscriptions: Subscription = new Subscription();
+  searchResults$: BehaviorSubject<SearchResultsItem[]>;
 
-  get searchResults(): SearchResultsItem[] {
-    const currentSearchValue = this._stateService.getSearchValue();
-    return this._youtubeService.getSearchResults(currentSearchValue);
+  constructor(private _stateService: StateService, private _youtubeService: YoutubeService) {
+    this.searchResults$ = new BehaviorSubject<SearchResultsItem[]>(
+      this._youtubeService.getSearchResults(),
+    );
   }
 
-  get isSortingPanelOpen(): boolean {
-    return this._stateService.getIsSortingPanelOpen();
+  ngOnInit(): void {
+    const subscription: Subscription = this._getSearchValue$()
+      .pipe(
+        switchMap<string, Observable<SearchResultsItem[]>>(
+          (newSearchValue: string) => this._getSearchResults$(newSearchValue),
+        ),
+      )
+      .subscribe(
+        (newSearchResults: SearchResultsItem[]) => {
+          this.searchResults$.next(newSearchResults);
+        },
+      );
+    this._subscriptions.add(subscription);
+  }
+
+  ngOnDestroy(): void {
+    this._subscriptions.unsubscribe();
+  }
+
+  private _getSearchValue$(): Observable<string> {
+    return this._stateService.getSearchValue$();
+  }
+
+  private _getSearchResults$(searchValue: string): Observable<SearchResultsItem[]> {
+    return this._youtubeService.getSearchResults$(searchValue);
+  }
+
+  getIsSortingPanelOpen$(): Observable<boolean> {
+    return this._stateService.getIsSortingPanelOpen$();
   }
 
   get sortState(): SortState {

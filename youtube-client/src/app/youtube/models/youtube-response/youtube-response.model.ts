@@ -1,9 +1,9 @@
-import YoutubeResponceItem from './youtube-response-item.model';
+import YoutubeResponseItem from './youtube-response-item.model';
 
-export default interface YoutubeResponce {
+export default interface YoutubeResponse {
   pageInfo: {
     totalResults: number,
     resultsPerPage: number,
   },
-  items: YoutubeResponceItem[],
+  items: YoutubeResponseItem[],
 }

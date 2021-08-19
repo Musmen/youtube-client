@@ -1,11 +1,11 @@
-import YoutubeResponce from '@youtube/models/youtube-response/youtube-response.model';
-import YoutubeResponceItem from '@youtube/models/youtube-response/youtube-response-item.model';
+import YoutubeResponse from '@youtube/models/youtube-response/youtube-response.model';
+import YoutubeResponseItem from '@youtube/models/youtube-response/youtube-response-item.model';
 import SearchResultsItem from '@youtube/models/search-results-item.model';
 
 import { getTimeInMilliseconds } from './helper';
 import { TIME_IN_MILLISECONDS, Colors } from './constants';
 
-type ParseYoutubeResponseFunctionType = (mockYoutubeResponse: YoutubeResponce)
+type ParseYoutubeResponseFunctionType = (mockYoutubeResponse: YoutubeResponse)
 => SearchResultsItem[];
 
 const parseYoutubeResponse: ParseYoutubeResponseFunctionType = (
@@ -13,21 +13,32 @@ const parseYoutubeResponse: ParseYoutubeResponseFunctionType = (
 ) => mockYoutubeResponse
   .items
   .map(
-    (item: YoutubeResponceItem) => (
+    (item: YoutubeResponseItem) => (
       {
         id: item.id,
         publishedAt: item.snippet.publishedAt,
         title: item.snippet.title,
         description: item.snippet.description,
-        posterUrl: item.snippet.thumbnails.standard.url,
+        posterUrl: (item.snippet.thumbnails.standard || item.snippet.thumbnails.default).url,
         statistics: item.statistics,
       }
     ),
   );
 
 export const getParsedYoutubeResponse: ParseYoutubeResponseFunctionType = (
-  mockYoutubeResponse: YoutubeResponce,
+  mockYoutubeResponse: YoutubeResponse,
 ) => parseYoutubeResponse(mockYoutubeResponse);
+
+type GetYouTubeResponseItemsIdsList = (response: YoutubeResponse)
+=> string;
+
+export const getYouTubeResponseItemsIdsList: GetYouTubeResponseItemsIdsList = (
+  { items },
+) => items
+  .map(
+    (item: YoutubeResponseItem) => item.id.videoId,
+  )
+  .join(',');
 
 type GetValueType = (item: SearchResultsItem) => number;
 

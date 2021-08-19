@@ -5,3 +5,7 @@ export const ERRORS_DESCRIPTIONS = {
 };
 
 export const MAX_USER_LOGIN_LENGTH: number = 10;
+
+export const DEBOUNCE_TIME_IN_MS: number = 300;
+
+export const MIN_SEARCH_VALUE_LENGTH: number = 3;

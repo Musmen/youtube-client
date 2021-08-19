@@ -1,11 +1,11 @@
 <app-sorting-block 
-  [isSortingPanelOpen]="isSortingPanelOpen"
+  [isSortingPanelOpen]="getIsSortingPanelOpen$() | async"
   [sortState]="sortState"
   (changeSortStateEvent)="setSortState($event)"
   (changeFilteringInputEvent)="setFilteringValue($event)"
 ></app-sorting-block>
 <app-search-results-list 
-  [searchResultsList]="searchResults"
+  [searchResultsList]="searchResults$ | async"
   [sortState]="sortState"
   [filteringValue]="filteringValue"
 ></app-search-results-list>

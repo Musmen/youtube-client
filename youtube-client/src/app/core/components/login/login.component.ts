@@ -20,7 +20,7 @@ export class LoginComponent {
   @Input() userLogin?: UserModel['login'];
   @Input() isUserLogged?: boolean;
 
-  @Output() loginEvent = new EventEmitter<void>();
+  @Output() goToLoginPageEvent = new EventEmitter<void>();
   @Output() logoutEvent = new EventEmitter<void>();
 
   MAX_USER_LOGIN_LENGTH: number;
@@ -29,8 +29,8 @@ export class LoginComponent {
     this.MAX_USER_LOGIN_LENGTH = MAX_USER_LOGIN_LENGTH;
   }
 
-  login(): void {
-    this.loginEvent.emit();
+  goToLogin(): void {
+    this.goToLoginPageEvent.emit();
   }
 
   logout(): void {

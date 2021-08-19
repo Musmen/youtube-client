@@ -44,10 +44,6 @@
     transform: translateY(-1em) scale(0.75);
   }
 
-  &.mat-form-field-appearance-outline .mat-form-field-outline-end {
-    border-radius: 0;
-  }
-
   &.mat-form-field-appearance-outline .mat-form-field-prefix, 
   &.mat-form-field-appearance-outline .mat-form-field-suffix {
     top: -2px;

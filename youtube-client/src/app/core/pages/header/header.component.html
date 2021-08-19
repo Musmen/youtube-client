@@ -1,12 +1,11 @@
 <app-logo></app-logo>
-<app-search-form 
-  [searchValue]="searchValue"
+<app-search-form
   (setSearchValueEvent)="setSearchValue($event)"
 ></app-search-form>
 <app-settings-button (toggleSortingPanelEvent)="toggleSortingPanel()"></app-settings-button>
 <app-login 
   [userLogin]="userLogin" 
   [isUserLogged]="isUserLogged"
-  (loginEvent)="login()"
+  (goToLoginPageEvent)="goToLoginPage()"
   (logoutEvent)="logout()"
 ></app-login>
