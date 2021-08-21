@@ -5,6 +5,7 @@ import {
 import { Observable } from 'rxjs';
 
 import { StateService } from '@core/services/state/state.service';
+import { LoginService } from '@core/services/login/login.service';
 import { LocationService } from '@core//services/location/location.service';
 import UserModel from '@core/models/user.model';
 
@@ -17,15 +18,16 @@ import UserModel from '@core/models/user.model';
 export class HeaderComponent {
   constructor(
     private _stateService: StateService,
+    private _loginService: LoginService,
     private _locationService: LocationService,
   ) { }
 
   get userLogin(): UserModel['login'] {
-    return this._stateService.getUserLogin();
+    return this._loginService.getUserLogin();
   }
 
   getIsUserLogged$(): Observable<boolean> {
-    return this._stateService.getIsUserLogged$();
+    return this._loginService.getIsUserLogged$();
   }
 
   setSearchValue(searchValue: string): void {
@@ -41,6 +43,6 @@ export class HeaderComponent {
   }
 
   logout(): void {
-    this._stateService.logout();
+    this._loginService.logout();
   }
 }

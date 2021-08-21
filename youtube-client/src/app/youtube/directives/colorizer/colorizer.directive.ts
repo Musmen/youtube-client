@@ -13,7 +13,7 @@ import { getTimeInMilliseconds } from '@youtube/common/helper';
 export class ColorizerDirective implements OnInit {
   @Input('appColorizer') postDate?: string;
   @Input() propertyToChangeColors: string[] = ['border-color'];
-  @Input() additionAlphaChannals: string[] = [''];
+  @Input() additionAlphaChannels: string[] = [''];
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
@@ -31,7 +31,7 @@ export class ColorizerDirective implements OnInit {
         .setStyle(
           this.elementRef.nativeElement,
           propertyToChangeColor,
-          `${newColor}${this.additionAlphaChannals[propertyIndex]}`,
+          `${newColor}${this.additionAlphaChannels[propertyIndex]}`,
         ));
   }
 }

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { LoginService } from '@auth/services/login/login.service';
+import { LoginService } from '@core/services/login/login.service';
 import UserModel from '@core/models/user.model';
 
 @Component({
