@@ -4,16 +4,9 @@ import { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 
 import { getParsedYoutubeResponse, getYouTubeResponseItemsIdsList } from '@youtube/common/tools';
-
 import SearchResultsItem from '@youtube/models/search-results-item.model';
 import YoutubeResponse from '@youtube/models/youtube-response/youtube-response.model';
-
-const YOUTUBE_API_TOKEN: string = 'AIzaSyAI-D1P0OH_z7m5_RzSiQgWz22lmXZ8ZAw';
-const YOUTUBE_API_URL = {
-  BASE: 'https://www.googleapis.com/youtube/v3/',
-  SEARCH: `search?key=${YOUTUBE_API_TOKEN}&type=video&part=snippet&maxResults=15&q=`,
-  VIDEOS: `videos?key=${YOUTUBE_API_TOKEN}&part=snippet,statistics&id=`,
-};
+import { YOUTUBE_API_URL } from '@youtube/common/constants';
 
 @Injectable()
 export class YoutubeService {
@@ -22,13 +15,13 @@ export class YoutubeService {
   constructor(private _http: HttpClient) { }
 
   private _fetchSearchResultsVideo$(searchValue: string): Observable<YoutubeResponse> {
-    const URL: string = `${YOUTUBE_API_URL.BASE}${YOUTUBE_API_URL.SEARCH}${searchValue}`;
-    return this._http.get<YoutubeResponse>(URL);
+    const API_URL_FOR_VIDEOS: string = `${YOUTUBE_API_URL.SEARCH}${searchValue}`;
+    return this._http.get<YoutubeResponse>(API_URL_FOR_VIDEOS);
   }
 
   fetchSearchResultsWithStats$(searchResultsIds: string): Observable<YoutubeResponse> {
-    const URL: string = `${YOUTUBE_API_URL.BASE}${YOUTUBE_API_URL.VIDEOS}${searchResultsIds}`;
-    return this._http.get<YoutubeResponse>(URL);
+    const API_URL_FOR_STATS: string = `${YOUTUBE_API_URL.VIDEOS}${searchResultsIds}`;
+    return this._http.get<YoutubeResponse>(API_URL_FOR_STATS);
   }
 
   getSearchResults$(searchValue: string): Observable<SearchResultsItem[]> {

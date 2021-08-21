@@ -37,3 +37,10 @@ export enum Colors {
   green = '#27AE60',
   yellow = '#F2C94C',
 }
+
+const MAX_RESULTS_PER_PAGE: number = 15;
+export const YOUTUBE_API_URL = {
+  BASE: 'https://www.googleapis.com/youtube/v3/',
+  SEARCH: `search?type=video&part=snippet&maxResults=${MAX_RESULTS_PER_PAGE}&q=`,
+  VIDEOS: 'videos?part=snippet,statistics&id=',
+};
