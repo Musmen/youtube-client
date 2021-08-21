@@ -68,4 +68,10 @@
 // customize material expansion panel of the sorting block
 .mat-expansion-panel .mat-expansion-panel-body {
   padding: 0;
-}   
+}
+
+// customize material progress-spinner
+mat-spinner.mat-progress-spinner circle, 
+mat-spinner.mat-spinner circle {
+    stroke: $main-color;
+}

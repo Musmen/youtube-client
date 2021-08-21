@@ -7,6 +7,7 @@ import { SettingsButtonComponent } from '@core/components/settings-button/settin
 import { LoginComponent } from '@core/components/login/login.component';
 import { HeaderComponent } from '@core/pages/header/header.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     LoginComponent,
     HeaderComponent,
     NotFoundComponent,
+    SpinnerComponent,
   ],
   imports: [SharedModule],
-  exports: [HeaderComponent, NotFoundComponent],
+  exports: [HeaderComponent, NotFoundComponent, SpinnerComponent],
 })
 export class CoreModule { }
