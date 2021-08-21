@@ -53,6 +53,7 @@
       type="submit"
       aria-label="Login button"
       mat-button
+      [disabled]="(getIsUserLogged$() | async)"
     >
       Login
     </button>
@@ -62,7 +63,7 @@
       aria-label="Logout"
       mat-button
       (click)="logout()"
-      [disabled]="!checkIsUserLogged()"
+      [disabled]="(getIsUserLogged$() | async) === false"
     >
       Logout
     </button>

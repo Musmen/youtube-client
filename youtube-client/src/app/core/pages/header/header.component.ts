@@ -1,28 +1,31 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+} from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { StateService } from '@core/services/state/state.service';
-import { LoginService } from '@app/auth/services/login/login.service';
-
-import UserModel from '@app/auth/models/user.model';
+import { LocationService } from '@core//services/location/location.service';
+import UserModel from '@core/models/user.model';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
   constructor(
     private _stateService: StateService,
-    private _loginService: LoginService,
+    private _locationService: LocationService,
   ) { }
 
   get userLogin(): UserModel['login'] {
-    return this._loginService.getUserLogin();
+    return this._stateService.getUserLogin();
   }
 
-  get isUserLogged(): boolean {
-    return this._loginService.checkIsUserLogged();
+  getIsUserLogged$(): Observable<boolean> {
+    return this._stateService.getIsUserLogged$();
   }
 
   setSearchValue(searchValue: string): void {
@@ -34,10 +37,10 @@ export class HeaderComponent {
   }
 
   goToLoginPage(): void {
-    this._loginService.goToLoginPage();
+    this._locationService.goToLoginPage();
   }
 
   logout(): void {
-    this._loginService.logout();
+    this._stateService.logout();
   }
 }

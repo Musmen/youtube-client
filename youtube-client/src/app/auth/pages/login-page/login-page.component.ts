@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { LoginService } from '@auth/services/login/login.service';
-import UserModel from '@auth/models/user.model';
+import UserModel from '@core/models/user.model';
 
 @Component({
   selector: 'app-login-page',
@@ -13,7 +14,7 @@ export class LoginPageComponent {
   user: UserModel;
 
   constructor(private _loginService: LoginService) {
-    this.user = { ..._loginService.getUser() };
+    this.user = this._loginService.getUser();
   }
 
   login(user: UserModel): void {
@@ -24,7 +25,7 @@ export class LoginPageComponent {
     this._loginService.logout();
   }
 
-  checkIsUserLogged(): boolean {
-    return this._loginService.checkIsUserLogged();
+  getIsUserLogged$(): Observable<boolean> {
+    return this._loginService.getIsUserLogged$();
   }
 }

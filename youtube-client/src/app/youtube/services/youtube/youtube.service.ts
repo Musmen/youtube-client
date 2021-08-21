@@ -6,7 +6,7 @@ import { switchMap, map } from 'rxjs/operators';
 import { getParsedYoutubeResponse, getYouTubeResponseItemsIdsList } from '@youtube/common/tools';
 
 import SearchResultsItem from '@youtube/models/search-results-item.model';
-import YoutubeResponse from '@app/youtube/models/youtube-response/youtube-response.model';
+import YoutubeResponse from '@youtube/models/youtube-response/youtube-response.model';
 
 const YOUTUBE_API_TOKEN: string = 'AIzaSyAI-D1P0OH_z7m5_RzSiQgWz22lmXZ8ZAw';
 const YOUTUBE_API_URL = {

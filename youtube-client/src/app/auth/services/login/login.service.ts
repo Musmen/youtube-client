@@ -1,79 +1,44 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
-import { RefService } from '@app/core/services/ref/ref.service';
+import { StateService } from '@core/services/state/state.service';
 
 import { generateAuthToken } from '@auth/common/helpers';
-import UserModel from '@auth/models/user.model';
-import { DEFAULT_USER, DEFAULT_USER_LOGIN_TITLE, STORAGE_KEYS } from '@auth/common/constants';
+import UserModel from '@core/models/user.model';
+import { DEFAULT_USER } from '@core/common/constants';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class LoginService {
   private _user!: UserModel;
-  private _isLogged: boolean = false;
-  private _localStorage: Storage;
 
-  constructor(private _router: Router, private _refService: RefService) {
-    this._localStorage = this._refService.localStorage;
-    this._initUser();
-  }
-
-  private _initUser(): void {
-    this._loadUser();
-    if (this._user.token) this._isLogged = true;
-  }
-
-  private _loadUser(): void {
-    this._user = JSON.parse(
-      this._localStorage.getItem(STORAGE_KEYS.USER) || JSON.stringify(DEFAULT_USER),
-    );
-  }
-
-  private _saveUser(user: UserModel = this._user): void {
-    this._localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(
-      {
-        login: user.login,
-        token: user.token,
-      },
-    ));
+  constructor(private _stateService: StateService) {
+    this._user = this._stateService.getUser();
   }
 
   private _setAuthToken(user: UserModel = this._user): void {
     this._user.token = generateAuthToken(user);
   }
 
+  private _setUser(user: UserModel) {
+    this._user = user;
+  }
+
   getUser(): UserModel {
-    return this._user || DEFAULT_USER;
+    return this._user;
   }
 
-  getUserLogin(): UserModel['login'] {
-    return this._user.login || DEFAULT_USER_LOGIN_TITLE;
-  }
-
-  checkIsUserLogged(): boolean {
-    return this._isLogged;
+  getIsUserLogged$(): Observable<boolean> {
+    return this._stateService.getIsUserLogged$();
   }
 
   login(user: UserModel = this._user): void {
-    this._user = { ...user };
-    this._isLogged = true;
-    this._setAuthToken(this._user);
-    this._saveUser(this._user);
-    this.goToMainPage();
+    this._setAuthToken();
+    this._setUser(user);
+    this._stateService.login(user);
   }
 
   logout(): void {
-    this._localStorage.removeItem(STORAGE_KEYS.USER);
-    this._user = DEFAULT_USER;
-    this._isLogged = false;
-    this.goToLoginPage();
-  }
-
-  goToMainPage(): void {
-    this._router.navigate(['main']);
-  }
-
-  goToLoginPage(): void {
-    this._router.navigate(['login']);
+    this._setUser(DEFAULT_USER);
+    this._stateService.logout();
   }
 }

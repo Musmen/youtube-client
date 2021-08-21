@@ -6,7 +6,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 
-import UserModel from '@app/auth/models/user.model';
+import UserModel from '@core/models/user.model';
 import { MAX_USER_LOGIN_LENGTH } from '@core/common/constants';
 
 @Component({
@@ -18,7 +18,7 @@ import { MAX_USER_LOGIN_LENGTH } from '@core/common/constants';
 
 export class LoginComponent {
   @Input() userLogin?: UserModel['login'];
-  @Input() isUserLogged?: boolean;
+  @Input() isUserLogged!: boolean | null;
 
   @Output() goToLoginPageEvent = new EventEmitter<void>();
   @Output() logoutEvent = new EventEmitter<void>();
