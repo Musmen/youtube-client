@@ -10,7 +10,10 @@ import {
 } from '@youtube/interceptors/url-modifier/url-modifier.interceptor';
 import {
   SPINNER_CONTROLLER_INTERCEPTOR_PROVIDE_TOKEN,
-} from './core/interceptors/spinner-controller/spinner-controller.interceptor';
+} from '@core/interceptors/spinner-controller/spinner-controller.interceptor';
+import {
+  ERROR_HANDLER_INTERCEPTOR_PROVIDE_TOKEN,
+} from '@core/interceptors/error-handler/error-handler.interceptor';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,8 +28,9 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule,
   ],
   providers: [
-    URL_MODIFIER_INTERCEPTOR_PROVIDE_TOKEN,
     SPINNER_CONTROLLER_INTERCEPTOR_PROVIDE_TOKEN,
+    URL_MODIFIER_INTERCEPTOR_PROVIDE_TOKEN,
+    ERROR_HANDLER_INTERCEPTOR_PROVIDE_TOKEN,
   ],
   bootstrap: [AppComponent],
 })

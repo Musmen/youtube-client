@@ -1,13 +1,16 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Observable } from 'rxjs';
-import { map, pluck } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map, pluck } from 'rxjs/operators';
 
-import { YoutubeService } from '@app/youtube/services/youtube/youtube.service';
+import { LocationService } from '@core/services/location/location.service';
+import { YoutubeService } from '@youtube/services/youtube/youtube.service';
+
+import { getParsedYoutubeResponse } from '@youtube/common/tools';
 import SearchResultsItem from '@youtube/models/search-results-item.model';
-import YoutubeResponse from '@app/youtube/models/youtube-response/youtube-response.model';
-import { getParsedYoutubeResponse } from '@app/youtube/common/tools';
+import YoutubeResponse from '@youtube/models/youtube-response/youtube-response.model';
+import { EMPTY_SEARCH_RESULTS_ITEM } from '@app/youtube/common/constants';
 
 @Component({
   selector: 'app-info-page',
@@ -18,7 +21,11 @@ import { getParsedYoutubeResponse } from '@app/youtube/common/tools';
 export class InfoPageComponent implements OnInit {
   infoCard$?: Observable<SearchResultsItem>;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _youtubeService: YoutubeService) { }
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _youtubeService: YoutubeService,
+    private _locationService: LocationService,
+  ) { }
 
   ngOnInit(): void {
     const { id } = this._activatedRoute.snapshot.params;
@@ -29,6 +36,12 @@ export class InfoPageComponent implements OnInit {
           (response: YoutubeResponse) => getParsedYoutubeResponse(response),
         ),
         pluck(0),
+        catchError(
+          () => {
+            this._locationService.goToMainPage();
+            return of(EMPTY_SEARCH_RESULTS_ITEM);
+          },
+        ),
       );
   }
 }

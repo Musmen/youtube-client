@@ -75,3 +75,8 @@ mat-spinner.mat-progress-spinner circle,
 mat-spinner.mat-spinner circle {
     stroke: $main-color;
 }
+
+// customize material snack-bar
+snack-bar-container.mat-snack-bar-container {
+  color: $main-red;
+}

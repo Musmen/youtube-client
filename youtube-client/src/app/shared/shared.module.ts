@@ -9,10 +9,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const materialModules = [
-  MatFormFieldModule, MatInputModule, MatIconModule,
-  MatButtonModule, MatExpansionModule, MatProgressSpinnerModule,
+  MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule,
+  MatExpansionModule, MatProgressSpinnerModule, MatSnackBarModule,
 ];
 
 @NgModule({

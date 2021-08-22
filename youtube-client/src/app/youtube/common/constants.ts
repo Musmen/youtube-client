@@ -1,4 +1,5 @@
 import SortingState from '@youtube/models/sort-state.model';
+import SearchResultsItem from '@youtube/models/search-results-item.model';
 
 export const LabelsIcons : { [key: string]: string } = {
   viewCount: 'visibility',
@@ -43,4 +44,18 @@ export const YOUTUBE_API_URL = {
   BASE: 'https://www.googleapis.com/youtube/v3/',
   SEARCH: `search?type=video&part=snippet&maxResults=${MAX_RESULTS_PER_PAGE}&q=`,
   VIDEOS: 'videos?part=snippet,statistics&id=',
+};
+
+export const EMPTY_SEARCH_RESULTS_ITEM: SearchResultsItem = {
+  id: '',
+  publishedAt: '',
+  title: '',
+  description: '',
+  posterUrl: '',
+  statistics: {
+    viewCount: '',
+    likeCount: '',
+    dislikeCount: '',
+    commentCount: '',
+  },
 };

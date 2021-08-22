@@ -6,8 +6,8 @@ import { SearchFormComponent } from '@core/components/search-form/search-form.co
 import { SettingsButtonComponent } from '@core/components/settings-button/settings-button.component';
 import { LoginComponent } from '@core/components/login/login.component';
 import { HeaderComponent } from '@core/pages/header/header.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { SpinnerComponent } from './components/spinner/spinner.component';
+import { NotFoundComponent } from '@core/pages/not-found/not-found.component';
+import { SpinnerComponent } from '@core/components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,10 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     SpinnerComponent,
   ],
   imports: [SharedModule],
-  exports: [HeaderComponent, NotFoundComponent, SpinnerComponent],
+  exports: [
+    HeaderComponent,
+    NotFoundComponent,
+    SpinnerComponent,
+  ],
 })
 export class CoreModule { }

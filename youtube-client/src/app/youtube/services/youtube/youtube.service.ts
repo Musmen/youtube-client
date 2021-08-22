@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { switchMap, map, catchError } from 'rxjs/operators';
 
 import { getParsedYoutubeResponse, getYouTubeResponseItemsIdsList } from '@youtube/common/tools';
 import SearchResultsItem from '@youtube/models/search-results-item.model';
@@ -38,6 +38,9 @@ export class YoutubeService {
             this._searchResults = getParsedYoutubeResponse(response);
             return this._searchResults;
           },
+        ),
+        catchError(
+          () => of(this._searchResults),
         ),
       );
   }
