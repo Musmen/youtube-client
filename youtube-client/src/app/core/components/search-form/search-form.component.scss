@@ -1,0 +1,16 @@
+@import 'src/scss/mixins.scss';
+@import 'src/scss/variables.scss';
+
+.search-form {
+  @include flex;
+  margin-right: 10px;
+}
+
+.search-form-field {
+  width: 396px;
+  height: 36px;
+}
+
+.search-form-input {
+  height: 36px;
+}

@@ -1,0 +1,13 @@
+@import 'src/scss/mixins.scss';
+
+.spinner-container {
+  position: absolute;
+  top: 0;
+  @include flex-center-aligned;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #B0C5D499;
+  opacity: 0.8;
+  z-index: 9999;
+}

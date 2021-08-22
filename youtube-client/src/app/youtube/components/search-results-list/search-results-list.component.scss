@@ -1,0 +1,12 @@
+@import './src/scss/mixins.scss';
+
+.search-results-list {
+  @include flex-center-aligned;
+  flex-wrap: wrap;
+
+  margin-top: 12px;
+}
+
+.search-results-item {
+  margin: 18px;
+}  

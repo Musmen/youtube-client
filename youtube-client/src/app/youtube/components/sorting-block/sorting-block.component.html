@@ -1,0 +1,57 @@
+<mat-expansion-panel hideToggle [(expanded)]="isSortingPanelOpen">
+  <div class="sorting-block">
+    <span class="sorting-title">Sorting by:</span>
+
+    <ul class="sorting-criteria-list list">
+      <li class="sorting-criteria-item">
+        <a
+          class="sorting-criteria-link"
+          [class.increasing]="sortState.ascending === 1"
+          [class.active]="sortState.sortingBy === 'date'"
+          (click)="changeSortState('date')"
+        >
+          <span class="text-underline">date</span>
+          <mat-icon class="sorting-direction-icon">keyboard_arrow_down</mat-icon>
+        </a>
+      </li>
+
+      <li class="sorting-criteria-item">
+        <a
+          class="sorting-criteria-link"
+          [class.increasing]="sortState.ascending === 1"
+          [class.active]="sortState.sortingBy === 'viewsCount'"
+          (click)="changeSortState('viewsCount')"
+        >
+          <span class="text-underline">count of views</span>
+          <mat-icon class="sorting-direction-icon">keyboard_arrow_down</mat-icon>
+        </a>
+      </li>
+    </ul>
+
+    <form class="filtering-form" name="filtering-form">
+      <label class="filtering-form-input-label">
+        <span
+          class="filtering-form-input-label-title"
+        >by word or sentence</span>
+        <input
+          class="filtering-form-input"
+          type="text"
+          name="filtering-input"
+          [(ngModel)]="filteringInput"
+          autocomplete="off"
+          (ngModelChange)="changeFilteringInput()"
+        >
+        <button
+          class="clear-button"
+          type="button"
+          *ngIf="filteringInput"
+          mat-button
+          aria-label="Clear filter input"
+          (click)="filteringInput='';changeFilteringInput()"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </label>
+    </form>
+  </div>
+</mat-expansion-panel>
