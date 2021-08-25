@@ -15,6 +15,9 @@ import {
   ERROR_HANDLER_INTERCEPTOR_PROVIDE_TOKEN,
 } from '@core/interceptors/error-handler/error-handler.interceptor';
 
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -26,6 +29,25 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
+    StoreModule.forRoot(
+      {
+        customCards: customCardsReducer,
+        youtubeVideos: youtubeVideosReducer,
+      },
+      {
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true,
+          strictStateSerializability: true,
+          strictActionSerializability: true,
+          strictActionWithinNgZone: true,
+          strictActionTypeUniqueness: true,
+        },
+      },
+    ),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+    }),
   ],
   providers: [
     SPINNER_CONTROLLER_INTERCEPTOR_PROVIDE_TOKEN,

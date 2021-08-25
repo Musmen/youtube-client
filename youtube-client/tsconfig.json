@@ -11,6 +11,7 @@
       "@shared/*": ["src/app/shared/*"],
       "@youtube/*": ["src/app/youtube/*"],
       "@auth/*": ["src/app/auth/*"],
+      "@redux/*": ["src/app/redux/*"],
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
