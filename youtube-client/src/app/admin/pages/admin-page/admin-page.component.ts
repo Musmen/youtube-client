@@ -1,8 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { Store } from '@ngrx/store';
 import { createCustomCard } from '@redux/actions/state.actions';
+import { selectCustomCardsCount } from '@app/redux/selectors/app.selectors';
+import { AppState } from '@app/redux/state.model';
 
+import { LocationService } from '@app/core/services/location/location.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import CustomCard from '@app/models/custom-card/custom-card.model';
 import { ADD_CUSTOM_CARD_MESSAGE, DURATION_TIME_IN_MS, EMPTY_CUSTOM_CARD } from '@app/admin/common/constants';
@@ -14,15 +18,34 @@ import { SNACK_BAR } from '@common/constants';
   styleUrls: ['./admin-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdminPageComponent {
+export class AdminPageComponent implements OnDestroy {
+  private _subscriptions: Subscription = new Subscription();
+  private _currentCustomCardId!: number;
+
   customCard: CustomCard = EMPTY_CUSTOM_CARD;
 
-  constructor(private _store: Store, private _snackBarService: MatSnackBar) { }
+  constructor(
+    private _store: Store<AppState>,
+    private _snackBarService: MatSnackBar,
+    private _locationService: LocationService,
+  ) {
+    const subscription = this._store.select(selectCustomCardsCount)
+      .subscribe((customCardsCount) => {
+        this._currentCustomCardId = customCardsCount;
+      });
 
-  private _getCustomCardWithDate(customCard: CustomCard): CustomCard {
+    this._subscriptions.add(subscription);
+  }
+
+  ngOnDestroy(): void {
+    this._subscriptions.unsubscribe();
+  }
+
+  private _getCustomCardWithDateAndId(customCard: CustomCard): CustomCard {
     return {
       ...customCard,
-      creationDate: Date.now(),
+      publishedAt: String(Date.now()),
+      id: String(this._currentCustomCardId),
     };
   }
 
@@ -33,8 +56,12 @@ export class AdminPageComponent {
     });
   }
 
+  goToMainPage(): void {
+    this._locationService.goToMainPage();
+  }
+
   addCustomCard(customCard: CustomCard) {
-    const newCustomCard = this._getCustomCardWithDate(customCard);
+    const newCustomCard = this._getCustomCardWithDateAndId(customCard);
     this._store.dispatch(createCustomCard({ newCustomCard }));
     this._showSuccessMessage();
   }

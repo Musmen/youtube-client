@@ -6,6 +6,11 @@ export const createCustomCard = createAction(
   props<{ newCustomCard: CustomCard }>(),
 );
 
-export const getCustomCardsList = createAction(
-  '[MAIN PAGE] GET ALL CUSTOM CARDS',
-);
+// export const getCustomCardsCount = createAction(
+//   '[ADMIN PAGE] CREATE CUSTOM CARD',
+//   props<{ newCustomCard: CustomCard }>(),
+// );
+
+// export const getCustomCardsList = createAction(
+//   '[MAIN PAGE] GET ALL CUSTOM CARDS',
+// );

@@ -3,7 +3,7 @@ import CustomCard from '@app/models/custom-card/custom-card.model';
 export const EMPTY_CUSTOM_CARD: CustomCard = {
   title: '',
   description: '',
-  imageUrl: '',
+  posterUrl: '',
   videoUrl: '',
 };
 

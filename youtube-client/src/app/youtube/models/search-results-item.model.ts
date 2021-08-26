@@ -8,10 +8,11 @@ export default interface SearchResultItem {
   title: YoutubeResponceItem['snippet']['title'],
   description: YoutubeResponceItem['snippet']['description'],
   posterUrl: YoutubeResponceThumbnails['url'],
-  statistics: {
+  statistics?: {
     viewCount: YoutubeResponceStatistics['viewCount'],
     likeCount: YoutubeResponceStatistics['likeCount'],
     dislikeCount: YoutubeResponceStatistics['dislikeCount'],
     commentCount: YoutubeResponceStatistics['commentCount'],
   },
+  videoUrl?: string,
 }

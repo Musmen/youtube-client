@@ -50,24 +50,24 @@
       </p>
     </label>
 
-    <label class="form-input-label custom-card-form-imageUrl-input-label">
-      <span class="label-description imageUrl-label-description">Image URL</span>
+    <label class="form-input-label custom-card-form-posterUrl-input-label">
+      <span class="label-description posterUrl-label-description">Poster URL</span>
       <p class="label-container">
         <input
-          class="form-input custom-card-form-imageUrl-input"
+          class="form-input custom-card-form-posterUrl-input"
           type="text"
-          name="custom-card-form-imageUrl-input"
-          placeholder="Enter image URL, please"
+          name="custom-card-form-posterUrl-input"
+          placeholder="Enter poster URL, please"
           autocomplete="off"
-          [(ngModel)]="customCard.imageUrl"
+          [(ngModel)]="customCard.posterUrl"
         >
         <button
           class="form-clear-button custom-card-form-clear-button"
           type="button"
-          aria-label="Clear image URL"
+          aria-label="Clear poster URL"
           mat-button
-          *ngIf="customCard.imageUrl"
-          (click)="customCard.imageUrl=''"
+          *ngIf="customCard.posterUrl"
+          (click)="customCard.posterUrl=''"
         >
           <mat-icon>clear</mat-icon>
         </button>
@@ -107,6 +107,15 @@
       mat-button
     >
       Create card
+    </button>
+    <button
+      class="custom-card-form-button form-button main-button button shadow"
+      type="button"
+      aria-label="Go to the Main Page"
+      mat-button
+      (click)="goToMainPage()"
+    >
+      Go to the Main Page
     </button>
   </div>
 </form>                                             

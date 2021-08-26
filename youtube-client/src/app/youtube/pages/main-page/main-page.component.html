@@ -4,8 +4,9 @@
   (changeSortStateEvent)="setSortState($event)"
   (changeFilteringInputEvent)="setFilteringValue($event)"
 ></app-sorting-block>
+<!-- [searchResultsList]="searchResults$ | async" -->
 <app-search-results-list 
-  [searchResultsList]="searchResults$ | async"
+  [searchResultsList]="cards$ | async"
   [sortState]="sortState"
   [filteringValue]="filteringValue"
 ></app-search-results-list>

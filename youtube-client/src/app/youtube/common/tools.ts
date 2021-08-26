@@ -48,7 +48,7 @@ export const getDateValue: GetValueType<SearchResultsItem> = (
 
 export const getViewCountValue: GetValueType<SearchResultsItem> = (
   item: SearchResultsItem,
-) => Number(item.statistics.viewCount);
+) => Number(item.statistics?.viewCount);
 
 type GetNewColorType = (timeAfterPublication: number) => string;
 
