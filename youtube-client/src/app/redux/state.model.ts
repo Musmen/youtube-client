@@ -1,3 +1,4 @@
+import CustomCard from '@app/models/custom-card/custom-card.model';
 import SearchResultItem from '@youtube/models/search-results-item.model';
 
 export interface AppState {

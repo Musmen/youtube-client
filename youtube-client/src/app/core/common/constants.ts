@@ -31,7 +31,7 @@ const DURATION_TIME_IN_MS = 3000;
 export const SNACK_BAR: SnackBar = {
   CONFIG: {
     horizontalPosition: 'center',
-    verticalPosition: 'bottom',
+    verticalPosition: 'top',
     duration: DURATION_TIME_IN_MS,
   },
   ACTION: '',

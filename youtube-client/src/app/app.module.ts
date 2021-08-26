@@ -17,6 +17,7 @@ import {
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appReducer } from '@redux/reducers/app.reducer';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,11 +30,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-    StoreModule.forRoot(
-      {
-        customCards: customCardsReducer,
-        youtubeVideos: youtubeVideosReducer,
-      },
+    StoreModule.forRoot({ state: appReducer },
       {
         runtimeChecks: {
           strictStateImmutability: true,
@@ -43,8 +40,7 @@ import { AppRoutingModule } from './app-routing.module';
           strictActionWithinNgZone: true,
           strictActionTypeUniqueness: true,
         },
-      },
-    ),
+      }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
