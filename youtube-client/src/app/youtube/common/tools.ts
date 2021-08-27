@@ -1,6 +1,7 @@
 import YoutubeResponse from '@youtube/models/youtube-response/youtube-response.model';
 import YoutubeResponseItem from '@youtube/models/youtube-response/youtube-response-item.model';
 import SearchResultsItem from '@youtube/models/search-results-item.model';
+import CustomCard from '@core/models/custom-card.model';
 
 import { getTimeInMilliseconds } from './helper';
 import { TIME_IN_MILLISECONDS, Colors } from './constants';
@@ -40,14 +41,14 @@ export const getYouTubeResponseItemsIdsList: GetYouTubeResponseItemsIdsList = (
   )
   .join(',');
 
-type GetValueType<T> = (item: T) => number;
+type GetValueType<T> = (item: T) => number | undefined;
 
-export const getDateValue: GetValueType<SearchResultsItem> = (
-  item: SearchResultsItem,
-) => Number(getTimeInMilliseconds(item.publishedAt));
+export const getDateValue: GetValueType<SearchResultsItem | CustomCard> = (
+  item: SearchResultsItem | CustomCard,
+) => Number(getTimeInMilliseconds(item.publishedAt!));
 
-export const getViewCountValue: GetValueType<SearchResultsItem> = (
-  item: SearchResultsItem,
+export const getViewCountValue: GetValueType<SearchResultsItem | CustomCard> = (
+  item: SearchResultsItem | CustomCard,
 ) => Number(item.statistics?.viewCount);
 
 type GetNewColorType = (timeAfterPublication: number) => string;

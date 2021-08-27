@@ -1,14 +1,20 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { Store } from '@ngrx/store';
-import { createCustomCard } from '@redux/actions/state.actions';
-import { selectCustomCardsCount } from '@app/redux/selectors/app.selectors';
+import { createCustomCard } from '@app/redux/actions/customCards.actions';
+import { selectCustomCardsCount } from '@app/redux/selectors/customCards.selectors';
 import { AppState } from '@app/redux/state.model';
 
 import { LocationService } from '@app/core/services/location/location.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import CustomCard from '@app/models/custom-card/custom-card.model';
+
+import CustomCard from '@app/core/models/custom-card.model';
 import { ADD_CUSTOM_CARD_MESSAGE, DURATION_TIME_IN_MS, EMPTY_CUSTOM_CARD } from '@app/admin/common/constants';
 import { SNACK_BAR } from '@common/constants';
 
@@ -18,20 +24,21 @@ import { SNACK_BAR } from '@common/constants';
   styleUrls: ['./admin-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdminPageComponent implements OnDestroy {
+export class AdminPageComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription = new Subscription();
-  private _currentCustomCardId!: number;
-
+  private _customCardId: number = 0;
   customCard: CustomCard = EMPTY_CUSTOM_CARD;
 
   constructor(
     private _store: Store<AppState>,
     private _snackBarService: MatSnackBar,
     private _locationService: LocationService,
-  ) {
+  ) { }
+
+  ngOnInit(): void {
     const subscription = this._store.select(selectCustomCardsCount)
       .subscribe((customCardsCount) => {
-        this._currentCustomCardId = customCardsCount;
+        this._customCardId = customCardsCount;
       });
 
     this._subscriptions.add(subscription);
@@ -41,11 +48,15 @@ export class AdminPageComponent implements OnDestroy {
     this._subscriptions.unsubscribe();
   }
 
+  private _getCustomCardId(): number {
+    return this._customCardId;
+  }
+
   private _getCustomCardWithDateAndId(customCard: CustomCard): CustomCard {
     return {
       ...customCard,
-      publishedAt: String(Date.now()),
-      id: String(this._currentCustomCardId),
+      publishedAt: String(new Date()),
+      id: String(this._getCustomCardId()),
     };
   }
 

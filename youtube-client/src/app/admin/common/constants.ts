@@ -1,4 +1,4 @@
-import CustomCard from '@app/models/custom-card/custom-card.model';
+import CustomCard from '@core/models/custom-card.model';
 
 export const EMPTY_CUSTOM_CARD: CustomCard = {
   title: '',

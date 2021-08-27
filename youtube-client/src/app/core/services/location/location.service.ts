@@ -9,6 +9,10 @@ export class LocationService {
     this._router.navigate(['/main']);
   }
 
+  goToAdminPage(): void {
+    this._router.navigate(['/admin']);
+  }
+
   goToLoginPage(): void {
     this._router.navigate(['/login']);
   }

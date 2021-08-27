@@ -2,6 +2,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import SearchResultsItem from '@youtube/models/search-results-item.model';
 import SortState from '@youtube/models/sort-state.model';
+import CustomCard from '@core/models/custom-card.model';
 
 @Component({
   selector: 'app-search-results-list',
@@ -11,11 +12,11 @@ import SortState from '@youtube/models/sort-state.model';
 })
 
 export class SearchResultsListComponent {
-  @Input() searchResultsList: SearchResultsItem[] | null = null;
+  @Input() searchResultsList: (SearchResultsItem | CustomCard)[] | null = [];
   @Input() sortState?: SortState;
   @Input() filteringValue?: string;
 
-  searchResultsItemById(index: number, item: SearchResultsItem): SearchResultsItem['id'] {
+  searchResultsItemById(index: number, item: SearchResultsItem | CustomCard): string | undefined {
     return item.id;
   }
 }

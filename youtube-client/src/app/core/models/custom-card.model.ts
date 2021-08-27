@@ -3,6 +3,9 @@ export default interface CustomCard {
   title: string,
   description: string,
   posterUrl: string,
-  videoUrl: string,
   publishedAt?: string,
+  statistics?: {
+    viewCount?: string,
+  }
+  videoUrl: string,
 }

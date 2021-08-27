@@ -42,6 +42,10 @@ export class HeaderComponent {
     this._locationService.goToLoginPage();
   }
 
+  goToAdminPage(): void {
+    this._locationService.goToAdminPage();
+  }
+
   logout(): void {
     this._loginService.logout();
   }

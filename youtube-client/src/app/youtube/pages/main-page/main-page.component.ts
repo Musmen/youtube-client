@@ -5,21 +5,21 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { Store } from '@ngrx/store';
-import { selectCustomCards } from '@app/redux/selectors/app.selectors';
-import { AppState } from '@app/redux/state.model';
-
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+
+import { Store } from '@ngrx/store';
+import { selectCustomCards } from '@app/redux/selectors/customCards.selectors';
+import { AppState } from '@app/redux/state.model';
 
 import { StateService } from '@core/services/state/state.service';
 import { YoutubeService } from '@youtube/services/youtube/youtube.service';
 
 import SearchResultsItem from '@youtube/models/search-results-item.model';
 import SortState from '@youtube/models/sort-state.model';
+import CustomCard from '@core/models/custom-card.model';
 
 import { DEFAULT_SORT_STATE } from '@youtube/common/constants';
-import CustomCard from '@app/models/custom-card/custom-card.model';
 
 @Component({
   selector: 'app-main-page',
@@ -34,7 +34,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
   searchResults$: BehaviorSubject<SearchResultsItem[]> = new BehaviorSubject<SearchResultsItem[]>(
     this._youtubeService.getSearchResults(),
   );
-  customCards$: Observable<CustomCard[]>;
+  customCards$!: Observable<CustomCard[]>;
 
   constructor(
     private _stateService: StateService,

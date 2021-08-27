@@ -13,7 +13,7 @@ export const compare: CompareFunctionType = (
 type GetTimeInMilliseconds = (date: string) => number;
 
 export const getTimeInMilliseconds: GetTimeInMilliseconds = (
-  date: string,
+  date: string | undefined,
 ) => {
   if (date) return new Date(date).getTime();
   return new Date().getTime();

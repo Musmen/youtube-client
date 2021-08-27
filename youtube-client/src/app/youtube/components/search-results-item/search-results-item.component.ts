@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import CustomCard from '@core/models/custom-card.model';
 import SearchResultsItem from '@youtube/models/search-results-item.model';
 
 @Component({
@@ -9,5 +10,5 @@ import SearchResultsItem from '@youtube/models/search-results-item.model';
 })
 
 export class SearchResultsItemComponent {
-  @Input() searchResultsItem?: SearchResultsItem;
+  @Input() searchResultsItem?: SearchResultsItem | CustomCard;
 }

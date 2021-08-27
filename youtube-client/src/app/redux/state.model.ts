@@ -1,18 +1,28 @@
-import CustomCard from '@app/models/custom-card/custom-card.model';
-import SearchResultItem from '@youtube/models/search-results-item.model';
+import SearchResultItem from '@app/youtube/models/search-results-item.model';
+import CustomCard from '@core/models/custom-card.model';
 
 export interface AppState {
-  customCards: CustomCard[],
-  youtubeVideos: SearchResultItem[],
-  isLoading: boolean,
-  isLoaded: boolean,
-  error: Error | null,
+  customCards: CustomCardsState,
+  youtubeVideos: YoutubeVideosState,
 }
 
-export const initialAppState: AppState = {
+export interface CustomCardsState {
+  customCards: CustomCard[],
+}
+
+export interface YoutubeVideosState {
+  youtubeVideos: SearchResultItem[],
+}
+
+export const initialCustomCardsState: CustomCardsState = {
   customCards: [],
+};
+
+export const initialYoutubeVideosState: YoutubeVideosState = {
   youtubeVideos: [],
-  isLoading: false,
-  isLoaded: false,
-  error: null,
+};
+
+export const initialAppState: AppState = {
+  customCards: initialCustomCardsState,
+  youtubeVideos: initialYoutubeVideosState,
 };
