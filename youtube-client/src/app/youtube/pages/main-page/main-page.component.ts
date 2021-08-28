@@ -5,12 +5,13 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { Store } from '@ngrx/store';
-import { selectCustomCards } from '@app/redux/selectors/customCards.selectors';
 import { AppState } from '@app/redux/state.model';
+import { updateSearchResultsSuccessfully } from '@redux/actions/youtubeVideos.actions';
+import { selectAllCards } from '@redux/selectors/app.selectors';
 
 import { StateService } from '@core/services/state/state.service';
 import { YoutubeService } from '@youtube/services/youtube/youtube.service';
@@ -31,18 +32,14 @@ import { DEFAULT_SORT_STATE } from '@youtube/common/constants';
 export class MainPageComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription = new Subscription();
 
-  searchResults$: BehaviorSubject<SearchResultsItem[]> = new BehaviorSubject<SearchResultsItem[]>(
-    this._youtubeService.getSearchResults(),
-  );
-  customCards$!: Observable<CustomCard[]>;
+  searchResults$: Observable<(SearchResultsItem | CustomCard)[]> = this._store
+    .select(selectAllCards);
 
   constructor(
     private _stateService: StateService,
     private _youtubeService: YoutubeService,
     private _store: Store<AppState>,
-  ) {
-    this.customCards$ = this._store.select(selectCustomCards);
-  }
+  ) { }
 
   ngOnInit(): void {
     const subscription: Subscription = this._getSearchValue$()
@@ -53,7 +50,9 @@ export class MainPageComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         (newSearchResults: SearchResultsItem[]) => {
-          this.searchResults$.next(newSearchResults);
+          this._store.dispatch(
+            updateSearchResultsSuccessfully({ searchResults: newSearchResults }),
+          );
         },
       );
     this._subscriptions.add(subscription);
