@@ -45,12 +45,12 @@ export class YoutubeService {
       );
   }
 
-  getSearchResults(): SearchResultsItem[] {
-    return this._searchResults;
-  }
+  // getSearchResults(): SearchResultsItem[] {
+  //   return this._searchResults;
+  // }
 
-  getSearchResultsItemById(idToFind: SearchResultsItem['id']): SearchResultsItem | undefined {
-    return this._searchResults
-      .find(({ id }) => id === idToFind);
-  }
+  // getSearchResultsItemById(idToFind: SearchResultsItem['id']): SearchResultsItem | undefined {
+  //   return this._searchResults
+  //     .find(({ id }) => id === idToFind);
+  // }
 }

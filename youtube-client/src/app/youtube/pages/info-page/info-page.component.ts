@@ -2,15 +2,17 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, pluck } from 'rxjs/operators';
+import { catchError, first, mergeMap } from 'rxjs/operators';
+
+import { Store } from '@ngrx/store';
+import { selectAllCards } from '@redux/selectors/app.selectors';
 
 import { LocationService } from '@core/services/location/location.service';
-import { YoutubeService } from '@youtube/services/youtube/youtube.service';
 
-import { getParsedYoutubeResponse } from '@youtube/common/tools';
 import SearchResultsItem from '@youtube/models/search-results-item.model';
-import YoutubeResponse from '@youtube/models/youtube-response/youtube-response.model';
-import { EMPTY_SEARCH_RESULTS_ITEM } from '@app/youtube/common/constants';
+import CustomCard from '@core/models/custom-card.model';
+import { AppState } from '@redux/state.model';
+import { EMPTY_SEARCH_RESULTS_ITEM } from '@youtube/common/constants';
 
 @Component({
   selector: 'app-info-page',
@@ -19,23 +21,21 @@ import { EMPTY_SEARCH_RESULTS_ITEM } from '@app/youtube/common/constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfoPageComponent implements OnInit {
-  infoCard$?: Observable<SearchResultsItem>;
+  infoCard$?: Observable<SearchResultsItem | CustomCard>;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _youtubeService: YoutubeService,
     private _locationService: LocationService,
+    private _store: Store<AppState>,
   ) { }
 
   ngOnInit(): void {
-    const { id } = this._activatedRoute.snapshot.params;
+    const idToFind = this._activatedRoute.snapshot.params.id;
 
-    this.infoCard$ = this._youtubeService.fetchSearchResultsWithStats$(id)
+    this.infoCard$ = this._store.select(selectAllCards)
       .pipe(
-        map<YoutubeResponse, SearchResultsItem[]>(
-          (response: YoutubeResponse) => getParsedYoutubeResponse(response),
-        ),
-        pluck(0),
+        mergeMap((card) => card),
+        first(({ id }) => id === idToFind),
         catchError(
           () => {
             this._locationService.goToMainPage();
