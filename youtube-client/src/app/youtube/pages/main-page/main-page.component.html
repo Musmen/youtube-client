@@ -5,7 +5,7 @@
   (changeFilteringInputEvent)="setFilteringValue($event)"
 ></app-sorting-block>
 <app-search-results-list 
-  [searchResultsList]="searchResults$ | async"
+  [searchResultsList$]="searchResults$"
   [sortState]="sortState"
   [filteringValue]="filteringValue"
 ></app-search-results-list>

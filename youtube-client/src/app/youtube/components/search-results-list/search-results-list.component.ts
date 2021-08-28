@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import SearchResultsItem from '@youtube/models/search-results-item.model';
 import SortState from '@youtube/models/sort-state.model';
@@ -12,11 +13,7 @@ import CustomCard from '@core/models/custom-card.model';
 })
 
 export class SearchResultsListComponent {
-  @Input() searchResultsList: (SearchResultsItem | CustomCard)[] | null = [];
+  @Input() searchResultsList$: Observable<(SearchResultsItem | CustomCard)[] | null> = of([]);
   @Input() sortState?: SortState;
   @Input() filteringValue?: string;
-
-  searchResultsItemById(index: number, item: SearchResultsItem | CustomCard): string | undefined {
-    return item.id;
-  }
 }

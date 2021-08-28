@@ -5,7 +5,7 @@ aria-label="Go to the Admin Page"
 mat-button
 (click)="goToAdminPage()"
 >
-  Go to the Admin Page
+  Admin Page
 </button>
 <app-logo></app-logo>
 <app-search-form
@@ -14,7 +14,7 @@ mat-button
 <app-settings-button (toggleSortingPanelEvent)="toggleSortingPanel()"></app-settings-button>
 <app-login 
   [userLogin]="userLogin" 
-  [isUserLogged]="getIsUserLogged$() | async"
+  [isUserLogged$]="getIsUserLogged$()"
   (goToLoginPageEvent)="goToLoginPage()"
   (logoutEvent)="logout()"
 ></app-login>

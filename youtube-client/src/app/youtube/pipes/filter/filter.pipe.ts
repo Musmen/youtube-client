@@ -7,9 +7,11 @@ import { getTrimmedStringInLowerCase } from '@youtube/common/helper';
 @Pipe({ name: 'filter' })
 export class FilterPipe implements PipeTransform {
   transform(
-    list: (SearchResultsItem | CustomCard)[],
+    list: (SearchResultsItem | CustomCard)[] | null,
     filteringValue?: string,
-  ): (SearchResultsItem | CustomCard)[] {
+  ): (SearchResultsItem | CustomCard)[] | null {
+    if (list === null) return [];
+
     return filteringValue
       ? list
         .filter(

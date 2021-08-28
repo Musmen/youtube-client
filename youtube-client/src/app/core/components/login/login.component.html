@@ -12,19 +12,19 @@
     aria-label="Logout"
     mat-button
     (click)="logout()"
-    *ngIf="isUserLogged; else goToLoginButton"
+    *ngIf="isUserLogged$ | async; else goToLoginPageButton"
   >
     Logout
 </button>
 
-<ng-template #goToLoginButton>
+<ng-template #goToLoginPageButton>
   <button
       class="button-login form-button main-button button shadow"
       type="button"
-      aria-label="Go to login page"
+      aria-label="Go to the Login Page"
       mat-button
       (click)="goToLogin()"
   >
-    Login
+    Login Page
   </button>
 </ng-template> 

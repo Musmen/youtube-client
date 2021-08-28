@@ -1,10 +1,9 @@
-<ul class="search-results-list list" *ngIf="searchResultsList">
+<ul class="search-results-list list" *ngIf="(searchResultsList$ | async) as searchResultsList">
   <li 
     class="search-results-item" 
     *ngFor="let searchResultsItem of searchResultsList
       | sort: sortState
-      | filter: filteringValue;
-      trackBy:searchResultsItemById"
+      | filter: filteringValue"
   >
     <app-search-results-item [searchResultsItem]="searchResultsItem"></app-search-results-item>
   </li>

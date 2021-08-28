@@ -11,16 +11,16 @@ import CustomCard from '@core/models/custom-card.model';
 @Pipe({ name: 'sort' })
 export class SortPipe implements PipeTransform {
   transform(
-    list: (SearchResultItem | CustomCard)[],
+    list: (SearchResultItem | CustomCard)[] | null,
     sortState?: SortState,
-  ): (SearchResultItem | CustomCard)[] {
+  ): (SearchResultItem | CustomCard)[] | null {
     if (!sortState) return list;
 
     const getCompareValue = (sortState.sortingBy === SortingValues.date)
       ? getDateValue
       : getViewCountValue;
 
-    return [...list].sort(
+    return [...(list || [])].sort(
       (
         firstCompareItem: SearchResultItem | CustomCard,
         secondCompareItem: SearchResultItem | CustomCard,
