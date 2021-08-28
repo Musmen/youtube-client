@@ -40,7 +40,7 @@
         <p class="description__info">{{ infoCard.description }}</p>
       </div>
 
-      <div class="description__statistics">
+      <div class="description__statistics" *ngIf="infoCard.statistics">
         <app-item-statistics [statistics]="infoCard.statistics"></app-item-statistics>
       </div>
     </div> 

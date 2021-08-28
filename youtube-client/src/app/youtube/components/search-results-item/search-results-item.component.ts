@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import CustomCard from '@core/models/custom-card.model';
-import SearchResultsItem from '@youtube/models/search-results-item.model';
+import CustomCard from '@core/models/cards/custom-card.model';
+import SearchResultsItem from '@core/models/cards/search-results-item.model';
 
 @Component({
   selector: 'app-search-results-item',

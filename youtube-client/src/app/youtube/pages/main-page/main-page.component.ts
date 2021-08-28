@@ -16,9 +16,9 @@ import { selectAllCards } from '@redux/selectors/app.selectors';
 import { StateService } from '@core/services/state/state.service';
 import { YoutubeService } from '@youtube/services/youtube/youtube.service';
 
-import SearchResultsItem from '@youtube/models/search-results-item.model';
+import SearchResultsItem from '@core/models/cards/search-results-item.model';
 import SortState from '@youtube/models/sort-state.model';
-import CustomCard from '@core/models/custom-card.model';
+import CustomCard from '@core/models/cards/custom-card.model';
 
 import { DEFAULT_SORT_STATE } from '@youtube/common/constants';
 

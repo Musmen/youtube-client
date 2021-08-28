@@ -5,8 +5,8 @@ import { compare } from '@youtube/common/helper';
 import { SortingValues } from '@youtube/common/constants';
 
 import SortState from '@youtube/models/sort-state.model';
-import SearchResultItem from '@youtube/models/search-results-item.model';
-import CustomCard from '@core/models/custom-card.model';
+import SearchResultItem from '@core/models/cards/search-results-item.model';
+import CustomCard from '@core/models/cards/custom-card.model';
 
 @Pipe({ name: 'sort' })
 export class SortPipe implements PipeTransform {

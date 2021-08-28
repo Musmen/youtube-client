@@ -1,9 +1,9 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import SearchResultsItem from '@youtube/models/search-results-item.model';
+import SearchResultsItem from '@core/models/cards/search-results-item.model';
 import SortState from '@youtube/models/sort-state.model';
-import CustomCard from '@core/models/custom-card.model';
+import CustomCard from '@core/models/cards/custom-card.model';
 
 @Component({
   selector: 'app-search-results-list',

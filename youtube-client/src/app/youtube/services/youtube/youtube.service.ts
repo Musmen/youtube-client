@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
 
 import { getParsedYoutubeResponse, getYouTubeResponseItemsIdsList } from '@youtube/common/tools';
-import SearchResultsItem from '@youtube/models/search-results-item.model';
+import SearchResultsItem from '@core/models/cards/search-results-item.model';
 import YoutubeResponse from '@youtube/models/youtube-response/youtube-response.model';
 import { YOUTUBE_API_URL } from '@youtube/common/constants';
 
@@ -44,13 +44,4 @@ export class YoutubeService {
         ),
       );
   }
-
-  // getSearchResults(): SearchResultsItem[] {
-  //   return this._searchResults;
-  // }
-
-  // getSearchResultsItemById(idToFind: SearchResultsItem['id']): SearchResultsItem | undefined {
-  //   return this._searchResults
-  //     .find(({ id }) => id === idToFind);
-  // }
 }

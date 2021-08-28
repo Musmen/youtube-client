@@ -1,4 +1,5 @@
 @import './src/scss/mixins.scss';
+@import './src/scss/variables.scss';
 
 :host {
   width: 100%;
@@ -21,4 +22,10 @@
   margin-left: 3px;
 
   font-size: 10px;
+}
+
+.custom-card-title {
+  @include flex-center;
+
+  color: $main-green;
 }

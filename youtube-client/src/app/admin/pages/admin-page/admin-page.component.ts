@@ -14,7 +14,7 @@ import { AppState } from '@app/redux/state.model';
 import { LocationService } from '@app/core/services/location/location.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import CustomCard from '@app/core/models/custom-card.model';
+import CustomCard from '@core/models/cards/custom-card.model';
 import { ADD_CUSTOM_CARD_MESSAGE, DURATION_TIME_IN_MS, EMPTY_CUSTOM_CARD } from '@app/admin/common/constants';
 import { SNACK_BAR } from '@common/constants';
 
@@ -27,7 +27,7 @@ import { SNACK_BAR } from '@common/constants';
 export class AdminPageComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription = new Subscription();
   private _customCardId: number = 0;
-  customCard: CustomCard = EMPTY_CUSTOM_CARD;
+  customCard!: CustomCard;
 
   constructor(
     private _store: Store<AppState>,
@@ -36,6 +36,8 @@ export class AdminPageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this._setEmptyCurrentCard();
+
     const subscription = this._store.select(selectCustomCardsCount)
       .subscribe((customCardsCount) => {
         this._customCardId = customCardsCount;
@@ -46,6 +48,10 @@ export class AdminPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this._subscriptions.unsubscribe();
+  }
+
+  private _setEmptyCurrentCard(): void {
+    this.customCard = { ...EMPTY_CUSTOM_CARD };
   }
 
   private _getCustomCardId(): number {
@@ -75,5 +81,6 @@ export class AdminPageComponent implements OnInit, OnDestroy {
     const newCustomCard = this._getCustomCardWithDateAndId(customCard);
     this._store.dispatch(createCustomCard({ newCustomCard }));
     this._showSuccessMessage();
+    this._setEmptyCurrentCard();
   }
 }

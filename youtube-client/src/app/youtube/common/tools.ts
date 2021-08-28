@@ -1,7 +1,7 @@
 import YoutubeResponse from '@youtube/models/youtube-response/youtube-response.model';
 import YoutubeResponseItem from '@youtube/models/youtube-response/youtube-response-item.model';
-import SearchResultsItem from '@youtube/models/search-results-item.model';
-import CustomCard from '@core/models/custom-card.model';
+import SearchResultsItem from '@core/models/cards/search-results-item.model';
+import CustomCard from '@core/models/cards/custom-card.model';
 
 import { getTimeInMilliseconds } from './helper';
 import { TIME_IN_MILLISECONDS, Colors } from './constants';

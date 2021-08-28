@@ -9,8 +9,8 @@ import { selectAllCards } from '@redux/selectors/app.selectors';
 
 import { LocationService } from '@core/services/location/location.service';
 
-import SearchResultsItem from '@youtube/models/search-results-item.model';
-import CustomCard from '@core/models/custom-card.model';
+import SearchResultsItem from '@core/models/cards/search-results-item.model';
+import CustomCard from '@core/models/cards/custom-card.model';
 import { AppState } from '@redux/state.model';
 import { EMPTY_SEARCH_RESULTS_ITEM } from '@youtube/common/constants';
 

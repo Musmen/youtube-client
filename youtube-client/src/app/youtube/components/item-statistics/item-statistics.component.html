@@ -1,4 +1,4 @@
-<ul class="search-card__statistics_list list" *ngIf="statistics">
+<ul class="search-card__statistics_list list" *ngIf="statistics; else customCardTitle">
   <li
     class="search-card__statistics_item"
     *ngFor="let statisticLabel of statisticLabels"
@@ -11,3 +11,9 @@
     </span>
   </li>
 </ul>
+
+<ng-template #customCardTitle>
+  <p class="custom-card-title">
+    Custom Card
+  </p>
+</ng-template>

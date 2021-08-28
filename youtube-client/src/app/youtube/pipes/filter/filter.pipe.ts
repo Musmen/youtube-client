@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import SearchResultsItem from '@youtube/models/search-results-item.model';
-import CustomCard from '@core/models/custom-card.model';
+import SearchResultsItem from '@core/models/cards/search-results-item.model';
+import CustomCard from '@core/models/cards/custom-card.model';
 import { getTrimmedStringInLowerCase } from '@youtube/common/helper';
 
 @Pipe({ name: 'filter' })

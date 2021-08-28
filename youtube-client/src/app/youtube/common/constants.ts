@@ -1,5 +1,5 @@
 import SortingState from '@youtube/models/sort-state.model';
-import SearchResultsItem from '@youtube/models/search-results-item.model';
+import SearchResultsItem from '@core/models/cards/search-results-item.model';
 
 export const LabelsIcons : { [key: string]: string } = {
   viewCount: 'visibility',

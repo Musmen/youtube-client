@@ -1,5 +1,5 @@
-import SearchResultItem from '@app/youtube/models/search-results-item.model';
-import CustomCard from '@core/models/custom-card.model';
+import SearchResultItem from '@core/models/cards/search-results-item.model';
+import CustomCard from '@core/models/cards/custom-card.model';
 
 export interface AppState {
   customCards: CustomCardsState,
