@@ -4,13 +4,15 @@
   [appColorizer]="searchResultsItem.publishedAt"
 >
   <a class="search-result-card__link" 
-    [href]="'https://www.youtube.com/watch?v=' + searchResultsItem.id" 
+    [href]="searchResultsItem.videoUrl" 
     target="_blank"
   >
     <img class="search-result-card__poster" src="{{ searchResultsItem.posterUrl }}">
   </a>
 
   <app-item-statistics [statistics]="searchResultsItem.statistics"></app-item-statistics>
+  
+  <p class="custom-card-title" *ngIf="searchResultsItem.isCustom">Custom Card</p>
 
   <h2 class="search-result-card__title">{{ searchResultsItem.title }}</h2>
 

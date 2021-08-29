@@ -22,7 +22,7 @@
     [additionAlphaChannels]="['40']"
   >
     <a class="info-card__link" 
-      [href]="'https://www.youtube.com/watch?v=' + infoCard.id" 
+      [href]="infoCard.videoUrl" 
       target="_blank"
     >
       <div class="poster-wrapper" [ngStyle]="{'background-image': 'url(' + infoCard.posterUrl + ')'}">
@@ -40,7 +40,7 @@
         <p class="description__info">{{ infoCard.description }}</p>
       </div>
 
-      <div class="description__statistics" *ngIf="infoCard.statistics">
+      <div class="description__statistics">
         <app-item-statistics [statistics]="infoCard.statistics"></app-item-statistics>
       </div>
     </div> 

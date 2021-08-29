@@ -3,6 +3,7 @@ import YoutubeResponseItem from '@youtube/models/youtube-response/youtube-respon
 import SearchResultsItem from '@core/models/cards/search-results-item.model';
 import CustomCard from '@core/models/cards/custom-card.model';
 
+import { DEFAULT_POSTER_URL } from '@common/constants';
 import { getTimeInMilliseconds } from './helper';
 import { TIME_IN_MILLISECONDS, Colors } from './constants';
 
@@ -20,8 +21,14 @@ const parseYoutubeResponse: ParseYoutubeResponseFunctionType = (
         publishedAt: item.snippet.publishedAt,
         title: item.snippet.title,
         description: item.snippet.description,
-        posterUrl: (item.snippet.thumbnails.standard || item.snippet.thumbnails.default).url,
+        posterUrl: (item.snippet.thumbnails.standard
+          || item.snippet.thumbnails.medium
+          || item.snippet.thumbnails.high
+          || item.snippet.thumbnails.maxres
+          || item.snippet.thumbnails.default).url
+          || DEFAULT_POSTER_URL,
         statistics: item.statistics,
+        videoUrl: `https://www.youtube.com/watch?v=${item.id}`,
       }
     ),
   );

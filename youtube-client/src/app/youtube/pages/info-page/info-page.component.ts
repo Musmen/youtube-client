@@ -6,12 +6,12 @@ import { catchError, first, mergeMap } from 'rxjs/operators';
 
 import { Store } from '@ngrx/store';
 import { selectAllCards } from '@redux/selectors/app.selectors';
+import { AppState } from '@redux/state.model';
 
 import { LocationService } from '@core/services/location/location.service';
 
 import SearchResultsItem from '@core/models/cards/search-results-item.model';
 import CustomCard from '@core/models/cards/custom-card.model';
-import { AppState } from '@redux/state.model';
 import { EMPTY_SEARCH_RESULTS_ITEM } from '@youtube/common/constants';
 
 @Component({
@@ -34,7 +34,7 @@ export class InfoPageComponent implements OnInit {
 
     this.infoCard$ = this._store.select(selectAllCards)
       .pipe(
-        mergeMap((card) => card),
+        mergeMap((cards) => cards),
         first(({ id }) => id === idToFind),
         catchError(
           () => {

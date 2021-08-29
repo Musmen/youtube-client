@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appState } from '@redux/app.state';
+
 import { CoreModule } from '@core/core.module';
 
 import {
@@ -15,10 +19,7 @@ import {
   ERROR_HANDLER_INTERCEPTOR_PROVIDE_TOKEN,
 } from '@core/interceptors/error-handler/error-handler.interceptor';
 
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { appState } from '@redux/app.state';
-
+import { STORE_DEVTOOLS_MAX_AGE } from '@common/constants';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -42,7 +43,7 @@ import { AppRoutingModule } from './app-routing.module';
         },
       }),
     StoreDevtoolsModule.instrument({
-      maxAge: 25,
+      maxAge: STORE_DEVTOOLS_MAX_AGE,
     }),
   ],
   providers: [

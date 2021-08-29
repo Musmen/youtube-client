@@ -62,6 +62,7 @@
 }
 
 .search-result-card__title {
+  max-width: 228px;
   max-height: 69px;
   margin: 10px 0 5px 0;
 
@@ -74,4 +75,10 @@
   color: $main-dark-font-color;
 
   overflow: hidden;
+}
+
+.custom-card-title {
+  @include flex-center;
+
+  color: $main-green;
 }

@@ -4,4 +4,6 @@ export default interface BaseCard {
   description: string,
   posterUrl: string,
   publishedAt: string,
+  videoUrl?: string,
+  isCustom?: boolean,
 }

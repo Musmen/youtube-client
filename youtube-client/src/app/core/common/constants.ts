@@ -10,7 +10,7 @@ export const ERRORS_DESCRIPTIONS = {
 
 export const MAX_USER_LOGIN_LENGTH: number = 10;
 
-export const DEBOUNCE_TIME_IN_MS: number = 400;
+export const DEBOUNCE_TIME_IN_MS: number = 700;
 
 export const MIN_SEARCH_VALUE_LENGTH: number = 3;
 
@@ -36,3 +36,7 @@ export const SNACK_BAR: SnackBar = {
   },
   ACTION: '',
 };
+
+export const STORE_DEVTOOLS_MAX_AGE: number = 25;
+
+export const DEFAULT_POSTER_URL: string = '/assets/images/no-poster-available.jpg';

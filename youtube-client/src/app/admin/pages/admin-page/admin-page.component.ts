@@ -7,16 +7,16 @@ import {
 import { Subscription } from 'rxjs';
 
 import { Store } from '@ngrx/store';
-import { createCustomCard } from '@app/redux/actions/customCards.actions';
-import { selectCustomCardsCount } from '@app/redux/selectors/customCards.selectors';
-import { AppState } from '@app/redux/state.model';
+import { createCustomCard } from '@redux/actions/customCards.actions';
+import { selectCustomCardsCount } from '@redux/selectors/customCards.selectors';
+import { AppState } from '@redux/state.model';
 
-import { LocationService } from '@app/core/services/location/location.service';
+import { LocationService } from '@core/services/location/location.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import CustomCard from '@core/models/cards/custom-card.model';
-import { ADD_CUSTOM_CARD_MESSAGE, DURATION_TIME_IN_MS, EMPTY_CUSTOM_CARD } from '@app/admin/common/constants';
-import { SNACK_BAR } from '@common/constants';
+import { DEFAULT_POSTER_URL, SNACK_BAR } from '@common/constants';
+import { ADD_CUSTOM_CARD_MESSAGE, DURATION_TIME_IN_MS, EMPTY_CUSTOM_CARD } from '@admin/common/constants';
 
 @Component({
   selector: 'app-admin-page',
@@ -26,7 +26,7 @@ import { SNACK_BAR } from '@common/constants';
 })
 export class AdminPageComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription = new Subscription();
-  private _customCardId: number = 0;
+  private _customCardId!: number;
   customCard!: CustomCard;
 
   constructor(
@@ -58,9 +58,10 @@ export class AdminPageComponent implements OnInit, OnDestroy {
     return this._customCardId;
   }
 
-  private _getCustomCardWithDateAndId(customCard: CustomCard): CustomCard {
+  private _getCustomCardWithAdditionalData(customCard: CustomCard): CustomCard {
     return {
       ...customCard,
+      posterUrl: customCard.posterUrl || DEFAULT_POSTER_URL,
       publishedAt: String(new Date()),
       id: String(this._getCustomCardId()),
     };
@@ -78,7 +79,7 @@ export class AdminPageComponent implements OnInit, OnDestroy {
   }
 
   addCustomCard(customCard: CustomCard) {
-    const newCustomCard = this._getCustomCardWithDateAndId(customCard);
+    const newCustomCard = this._getCustomCardWithAdditionalData(customCard);
     this._store.dispatch(createCustomCard({ newCustomCard }));
     this._showSuccessMessage();
     this._setEmptyCurrentCard();
