@@ -1,4 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
+
 import CustomCard from '@core/models/cards/custom-card.model';
 import SearchResultsItem from '@core/models/cards/search-results-item.model';
 
@@ -11,4 +13,15 @@ import SearchResultsItem from '@core/models/cards/search-results-item.model';
 
 export class SearchResultsItemComponent {
   @Input() searchResultsItem?: SearchResultsItem | CustomCard;
+
+  constructor(private _router: Router) { }
+
+  goToInfoPage() {
+    this._router.navigate(
+      ['/main', this.searchResultsItem?.id],
+      {
+        queryParams: { isCustom: this.searchResultsItem?.isCustom },
+      },
+    );
+  }
 }

@@ -21,7 +21,7 @@
       class="search-result-card__button_more main-button button"
       aria-label="Additional information"
       mat-button
-      [routerLink]="[searchResultsItem.id]"
+      (click)="goToInfoPage()"
     >
       more...
     </button>
