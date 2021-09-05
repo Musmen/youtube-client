@@ -1,0 +1,25 @@
+<form class="search-form form" name="search">
+  <mat-form-field class="search-form-field" appearance="outline">
+    <mat-label>Enter youtube video title</mat-label>
+    <input
+      class="search-form-input search-input input" 
+      type="search" 
+      name="searchValue"
+      matInput 
+      autocomplete="off"
+      [(ngModel)]="searchValue" 
+      (ngModelChange)="setSearchValue(searchValue)"
+    >
+    <button 
+      class="search-clear-button"
+      type="button"
+      *ngIf="searchValue" 
+      matSuffix 
+      mat-icon-button 
+      aria-label="Clear search input" 
+      (click)="searchValue=''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</form>

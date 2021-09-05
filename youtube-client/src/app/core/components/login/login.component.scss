@@ -1,0 +1,30 @@
+@import 'src/scss/mixins.scss';
+@import 'src/scss/variables.scss';
+
+:host {
+  position: absolute;
+  right: 0;
+
+  @include flex-aligned;
+}
+
+.user-login {
+  line-height: 32px;
+  margin-right: 10px;
+
+  color: $main-dark-font-color;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+
+  border-radius: 8px;
+}
+
+.button-logout,
+.button-login {
+  min-width: 105px;
+  margin-right: 20px;
+}  

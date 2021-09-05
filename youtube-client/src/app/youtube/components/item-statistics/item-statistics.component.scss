@@ -1,0 +1,25 @@
+@import './src/scss/mixins.scss';
+@import './src/scss/variables.scss';
+
+:host {
+  width: 100%;
+}
+
+.search-card__statistics_list {
+  @include flex-evenly;
+}
+
+.search-card__statistics_item {
+  @include flex-aligned;
+  flex-direction: column;
+}
+
+.statistics__icon {
+  font-size: 0;
+}
+
+.statistics__count {
+  margin-left: 3px;
+
+  font-size: 10px;
+}

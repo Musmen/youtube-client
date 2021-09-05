@@ -1,0 +1,20 @@
+<button
+class="button-admin main-button button shadow"
+type="button"
+aria-label="Go to the Admin Page"
+mat-button
+(click)="goToAdminPage()"
+>
+  Admin Page
+</button>
+<app-logo></app-logo>
+<app-search-form
+  (setSearchValueEvent)="setSearchValue($event)"
+></app-search-form>
+<app-settings-button (toggleSortingPanelEvent)="toggleSortingPanel()"></app-settings-button>
+<app-login 
+  [userLogin]="userLogin" 
+  [isUserLogged$]="getIsUserLogged$()"
+  (goToLoginPageEvent)="goToLoginPage()"
+  (logoutEvent)="logout()"
+></app-login>

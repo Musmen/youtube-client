@@ -1,0 +1,17 @@
+@import 'src/scss/mixins.scss';
+@import 'src/scss/variables.scss';
+
+:host {
+  position: relative;
+
+  @include flex-center-aligned;
+  min-height: 80px;
+
+  background-color: $main-bg-color-light;
+}
+
+.button-admin {
+  position: absolute;
+  left: 0;
+  margin-left: 20px;
+}

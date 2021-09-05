@@ -1,0 +1,84 @@
+@import './src/scss/mixins.scss';
+@import './src/scss/variables.scss';
+
+.search-result-card {
+  position: relative;
+
+  @include flex-column;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 264px;
+  height: 327px;
+  padding: 20px;
+
+  border-radius: 5px;
+  border-bottom: 5px solid $main-yellow;
+
+  background-color: $main-bg-color-light;
+
+  overflow: hidden;
+}
+
+.search-result-card__poster {
+  width: 223px;
+  height: 123px;
+
+  border-radius: 5px;
+
+  object-fit: cover;
+}
+
+.search-result-card-buttons {
+  position: absolute;
+  bottom: 10px;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.search-result-card__button_more {
+  width: 120px;
+  height: 32px;
+
+  line-height: 32px;
+
+  box-shadow: 1px 0px 6px 0px $main-color;
+}
+
+.search-result-card__link {
+  margin-bottom: 5px;
+
+  font-size: 0;
+  text-decoration: none;
+
+  border-radius: 5px;
+
+  &:hover {
+    box-shadow: 4px 4px 8px 0px $link-shadow-color,
+              -4px -4px 8px 0px $link-shadow-color;
+  }
+}
+
+.search-result-card__title {
+  max-width: 228px;
+  max-height: 69px;
+  margin: 10px 0 5px 0;
+
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: right;
+  text-overflow: ellipsis;
+  color: $main-dark-font-color;
+
+  overflow: hidden;
+}
+
+.custom-card-title {
+  @include flex-center;
+
+  color: $main-green;
+}

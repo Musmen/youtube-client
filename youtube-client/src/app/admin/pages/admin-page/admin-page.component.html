@@ -1,0 +1,121 @@
+<form class="custom-card-form" name="custom-card-form" (submit)="addCustomCard(customCard)">
+  <fieldset class="custom-card-form-fieldset">
+    <legend class="custom-card-form-legend">Create new card</legend>
+
+    <label class="form-input-label custom-card-form-title-input-label">
+      <span class="label-description title-label-description">Title</span>
+      <p class="label-container">
+        <input
+          class="form-input custom-card-form-title-input"
+          type="text"
+          name="custom-card-form-title-input"
+          placeholder="Enter card title, please"
+          autocomplete="off"
+          [(ngModel)]="customCard.title"
+        >
+        <button
+          class="form-clear-button custom-card-form-clear-button"
+          type="button"
+          aria-label="Clear title"
+          mat-button
+          *ngIf="customCard.title"
+          (click)="customCard.title=''"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </p>
+    </label>
+
+    <label class="form-input-label custom-card-form-description-input-label">
+      <span class="label-description description-label-description">Description</span>
+      <p class="label-container">
+        <input
+          class="form-input custom-card-form-description-input"
+          type="text"
+          name="custom-card-form-description-input"
+          placeholder="Enter card description, please"
+          autocomplete="off"
+          [(ngModel)]="customCard.description"
+        >
+        <button
+          class="form-clear-button custom-card-form-clear-button"
+          type="button"
+          aria-label="Clear card description"
+          mat-button
+          *ngIf="customCard.description"
+          (click)="customCard.description=''"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </p>
+    </label>
+
+    <label class="form-input-label custom-card-form-posterUrl-input-label">
+      <span class="label-description posterUrl-label-description">Poster URL</span>
+      <p class="label-container">
+        <input
+          class="form-input custom-card-form-posterUrl-input"
+          type="text"
+          name="custom-card-form-posterUrl-input"
+          placeholder="Enter poster URL, please"
+          autocomplete="off"
+          [(ngModel)]="customCard.posterUrl"
+        >
+        <button
+          class="form-clear-button custom-card-form-clear-button"
+          type="button"
+          aria-label="Clear poster URL"
+          mat-button
+          *ngIf="customCard.posterUrl"
+          (click)="customCard.posterUrl=''"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </p>
+    </label>
+
+    <label class="form-input-label custom-card-form-videoUrl-input-label">
+      <span class="label-description videoUrl-label-description">Video URL</span>
+      <p class="label-container">
+        <input
+          class="form-input custom-card-form-videoUrl-input"
+          type="text"
+          name="custom-card-form-videoUrl-input"
+          placeholder="Enter video URL, please"
+          autocomplete="off"
+          [(ngModel)]="customCard.videoUrl"
+        >
+        <button
+          class="form-clear-button custom-card-form-clear-button"
+          type="button"
+          aria-label="Clear video URL"
+          mat-button
+          *ngIf="customCard.videoUrl"
+          (click)="customCard.videoUrl=''"
+        >
+          <mat-icon>clear</mat-icon>
+        </button>
+      </p>
+    </label>
+  </fieldset>
+
+  <div class="form-container">
+    <button
+      class="custom-card-form-button form-button main-button button shadow"
+      type="submit"
+      aria-label="Create card button"
+      mat-button
+    >
+      Create card
+    </button>
+    <button
+      class="custom-card-form-button form-button main-button button shadow"
+      type="button"
+      aria-label="Go to the Main Page"
+      mat-button
+      (click)="goToMainPage()"
+    >
+      Main Page
+    </button>
+  </div>
+</form>

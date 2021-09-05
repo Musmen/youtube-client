@@ -1,0 +1,48 @@
+<section class="info-card" *ngIf="(infoCard$ | async) as infoCard">
+  <div class="button-wrapper">
+    <button
+      class="info-card__back-button button shadow"
+      aria-label="Back"
+      mat-button
+      routerLink="/main"
+      [ngStyle]="{'filter': 'drop-shadow(-2px 2px 4px)', 'box-shadow': '-2px 2px 4px 0px'}"
+      [appColorizer]="infoCard.publishedAt"
+      [propertyToChangeColors]="['backgroundColor','color']"
+      [additionAlphaChannels]="['', '80']"
+    >
+      <img class="info-card-button-image" src="../../../../../assets/images/back-button.png" alt="Back">
+    </button>
+  </div>
+
+  <div 
+    class="card-wrapper"
+    [ngStyle]="{'filter': 'drop-shadow(5px 10px 10px)', 'box-shadow': '5px 10px 10px 0px'}"
+    [appColorizer]="infoCard.publishedAt" 
+    [propertyToChangeColors]="['color']"
+    [additionAlphaChannels]="['40']"
+  >
+    <a class="info-card__link" 
+      [href]="infoCard.videoUrl" 
+      target="_blank"
+    >
+      <div class="poster-wrapper" [ngStyle]="{'background-image': 'url(' + infoCard.posterUrl + ')'}">
+      </div>
+    </a>
+
+    <div class="description-wrapper" [appColorizer]="infoCard.publishedAt">
+      <div class="info-card__header">
+        <h2 class="info-card__title">{{ infoCard.title }}</h2>
+        <span class="info-card__date">{{ infoCard.publishedAt | date:'fullDate' }}</span>
+      </div>
+
+      <div class="info-card__description">
+        <h4 class="description__title">Description:</h4>
+        <p class="description__info">{{ infoCard.description }}</p>
+      </div>
+
+      <div class="description__statistics">
+        <app-item-statistics [statistics]="infoCard.statistics"></app-item-statistics>
+      </div>
+    </div> 
+  </div>
+</section>

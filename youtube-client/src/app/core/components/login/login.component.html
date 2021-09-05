@@ -1,0 +1,30 @@
+<span class="user-login">
+  {{ userLogin | slice:0:MAX_USER_LOGIN_LENGTH | titlecase }}
+</span>
+<img 
+  class="user-avatar shadow" 
+  src="../../../assets/images/default-user-avatar.png" 
+  alt="User avatar"
+>
+<button
+    class="button-logout form-button main-button button shadow"
+    type="button"
+    aria-label="Logout"
+    mat-button
+    (click)="logout()"
+    *ngIf="isUserLogged$ | async; else goToLoginPageButton"
+  >
+    Logout
+</button>
+
+<ng-template #goToLoginPageButton>
+  <button
+      class="button-login form-button main-button button shadow"
+      type="button"
+      aria-label="Go to the Login Page"
+      mat-button
+      (click)="goToLogin()"
+  >
+    Login Page
+  </button>
+</ng-template> 
